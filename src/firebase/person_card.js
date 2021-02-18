@@ -49,7 +49,7 @@ export default function PersonCard() {
          <Card className={cardClasses.root} variant="outlined">
             <CardContent>
                <Typography className={cardClasses.title} color="textSecondary" gutterBottom>
-                  Word of the Day
+                  Peepee poopoo
                </Typography>
 
 
