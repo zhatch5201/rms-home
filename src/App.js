@@ -1,10 +1,10 @@
-import PeopleGrid from './firebase/people_grid';
-import PersonCard from './firebase/person_card';
+import PeopleGrid from './Components/people_grid';
+import Test from './Components/person';
 import './App.css';
 
 function App() {
 
-  return (<div><PersonCard /><br /></div>);
+  return (<div><Test /><Test /><Test /><Test /></div>);
 }
 
 export default App;

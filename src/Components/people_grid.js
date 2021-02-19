@@ -14,18 +14,18 @@ export default function PeopleGrid() {
       ref.onSnapshot((querySnapshot) => {
          const items = [];
          querySnapshot.forEach((person) => {
-            var timer = setTimeout(() => { console.log(`test`); }, 50);
             items.push(person.data());
-            clearTimeout(timer);
          });
          setPeople(items);
          setLoading(false);
          // console.log(people);
       });
    }
+
    useEffect(() => {
       getPeople();
    }, []);
+
    if (loading) {
       return (<CircularProgress color="secondary" />);
    }
@@ -41,9 +41,7 @@ export default function PeopleGrid() {
       // { field: 'fullName', headerName: 'Full name', description: 'This column has a value getter and is not sortable.', sortable: false, width: 160, valueGetter: (params) => `${params.getValue('firstName') || ''} ${params.getValue('lastName') || ''}`, },
    ];
 
-   const rows =
-      people
-      ;
+   const rows = people;
    // console.log(people);
    return (
       <Fragment>
