@@ -1,6 +1,7 @@
 const faker = require('faker');
 const admin = require('firebase-admin');
 const serviceAccount = require('./west-mec-rms-firebase-adminsdk-8pzgp-4072ae64ad.json');
+const { uuid } = require('uuidv4');
 
 admin.initializeApp({
    credential: admin.credential.cert(serviceAccount)
@@ -13,6 +14,7 @@ function choose(choices) {
 }
 function make_person() {
    var Person = {
+      id: uuid(),
       report_code: choose([`RP`, `W`, `V`, `IL`, `S`]),
       last_name: faker.name.lastName(),
       first_name: faker.name.firstName(),
@@ -34,9 +36,9 @@ function make_person() {
          date_of_birth: faker.date.past(65).toLocaleDateString(),
          age: 15,
          special_features: {
-            face: choose([`tattoo`, `scar`, `missing`]),
-            body: choose([`tattoo`, `scar`, `missing`]),
-            arms: choose([`tattoo`, `scar`, `missing`])
+            face: choose([`tattoo`, `scar`, `missing`, null]),
+            body: choose([`tattoo`, `scar`, `missing`, null]),
+            arms: choose([`tattoo`, `scar`, `missing`, null])
          }
       },
       address: faker.address.streetAddress(),
@@ -44,7 +46,7 @@ function make_person() {
       known_incidents: [],
       vehicles: [],
       gang_affiliated: choose([true, false]),
-      mugshots: faker.image.imageUrl()
+      mugshots: `https://randomuser.me/api/portraits/thumb/${choose(['men', 'women'])}/${Math.floor(Math.random() * 100)}.jpg`
    };
    return Person;
 }
@@ -53,6 +55,6 @@ function make_person() {
 // db.collection('people').doc(`${test.last_name}, ${test.first_name}`).set(test);
 setInterval(() => {
    const input_data = make_person();
-   db.collection('People').doc(`${input_data.last_name}, ${input_data.first_name}`).set(input_data);
+   db.collection('People').doc(input_data.id).set(input_data);
    console.log(`Added ${input_data.first_name} ${input_data.last_name}`);
 }, 100);
