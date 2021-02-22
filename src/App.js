@@ -1,15 +1,15 @@
 import PeopleGrid from './firebase/people_grid';
 import PersonCard from './firebase/person_card';
 import PeopleList from './firebase/people_list';
-import Incidence from './firebase/incidence_form';
 import PeopleForm from './firebase/people_form';
+import NavBar from './firebase/nav_bar'
 import './App.css';
 
 function App() {
 
   return (
   <div>
-     <PeopleList /><br />
+     <NavBar /><br />
   </div>
   );
 }
