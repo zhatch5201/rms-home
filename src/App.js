@@ -7,11 +7,10 @@ import './App.css';
 function App() {
 
   return (
-    <div>
-      <PeopleGrid /><br/>
-    </div>
-    
-    );
+  <div>
+     <NavBar /><br />
+  </div>
+  );
 }
 
 export default App;
