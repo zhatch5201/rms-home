@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -38,10 +38,48 @@ const accordionStyle = makeStyles((theme) => ({
       fontWeight: theme.typography.fontWeightRegular,
    },
    ul: {
+      width: '100%'
+   },
+   table: {
+      width: '100%'
+   },
+   th: {
+      textAlign: 'left'
+   },
+   td: {
+      textAlign: 'center'
    }
 }));
 
 export default function PersonCard() {
+   // const [people, setPeople] = useState([]);
+   // const [loading, setLoading] = useState(true);
+   // const ref = firebase.firestore().collection("People");
+
+   // function getPeople() {
+   //    setLoading(true);
+   //    ref.onSnapshot((querySnapshot) => {
+   //       const items = [];
+   //       querySnapshot.forEach((person) => {
+   //          var timer = setTimeout(() => { console.log(`test`); }, 50);
+   //          items.push(person.data());
+   //          clearTimeout(timer);
+   //       });
+   //       setPeople(items);
+   //       setLoading(false);
+   //       // console.log(people);
+   //    });
+   // }
+
+   // useEffect(() => {
+   //    getPeople();
+   // }, []);
+
+   // if (loading) {
+   //    return (<h1>Loading...</h1>);
+   // }
+
+
    const cardClasses = cardStyles();
    const accordionClasses = accordionStyle();
    return (
@@ -49,7 +87,7 @@ export default function PersonCard() {
          <Card className={cardClasses.root} variant="outlined">
             <CardContent>
                <Typography className={cardClasses.title} color="textSecondary" gutterBottom>
-                  Word of the Day
+                  Peepee poopoo
                </Typography>
 
 
@@ -65,11 +103,11 @@ export default function PersonCard() {
                      </AccordionSummary>
                      <AccordionDetails>
                         <Typography className={accordionClasses.ul}>
-                           <table>
+                           <table className={accordionClasses.table}>
                               <tbody>
                                  <tr>
-                                    <th>Gender</th>
-                                    <td className={accordionClasses}>Male</td>
+                                    <th className={accordionClasses.th}>Gender</th>
+                                    <td className={accordionClasses.td}></td>
                                  </tr>
                               </tbody>
                            </table>
