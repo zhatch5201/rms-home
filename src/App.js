@@ -1,10 +1,18 @@
-import PeopleGrid from './Components/people_grid';
-import Test from './Components/person';
+import PeopleGrid from './firebase/people_grid';
+import PersonCard from './firebase/person_card';
+import BottomNavbar from './firebase/bottom_navbar';
+
 import './App.css';
 
 function App() {
 
-  return (<div><Test /><Test /><Test /><Test /></div>);
+  return (
+    <div>
+      <PeopleGrid /><br/>
+    </div>
+    
+    );
 }
 
 export default App;
+
