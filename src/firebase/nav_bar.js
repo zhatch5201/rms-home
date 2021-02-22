@@ -8,12 +8,18 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 
+import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+  },
+  nav: {
+    width: '500px',
+    marginRight: `calc(1em + ${theme.spacing(20)}px)`,
+    borderRadius: theme.shape.borderRadius,
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -88,17 +94,19 @@ export default function SearchAppBar() {
           <Typography className={classes.title} variant="h6" noWrap>
             Material-UI
           </Typography>
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            indicatorColor="primary"
-            textColor="primary"
-            centered
-          >
-            <Tab label="Item One" />
-            <Tab label="Item Two" />
-            <Tab label="Item Three" />
-          </Tabs>
+          <Paper className={classes.root} className={classes.nav} >
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        indicatorColor="primary"
+        textColor="primary"
+        centered
+      >
+        <Tab label="Item One" />
+        <Tab label="Item Two" />
+        <Tab label="Item Three" />
+      </Tabs>
+    </Paper>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
