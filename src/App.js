@@ -1,6 +1,5 @@
 import PeopleGrid from './firebase/people_grid';
 import PersonCard from './firebase/person_card';
-import PeopleForm from './firebase/people_form';
 import NavBar from './firebase/nav_bar'
 import './App.css';
 
