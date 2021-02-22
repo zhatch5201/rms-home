@@ -6,7 +6,12 @@ import './App.css';
 
 function App() {
 
-  return (<div><BottomNavbar /><br /></div>);
+  return (
+    <div>
+      <PeopleGrid /><br/>
+    </div>
+    
+    );
 }
 
 export default App;
