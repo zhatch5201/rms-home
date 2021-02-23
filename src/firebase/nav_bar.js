@@ -92,7 +92,7 @@ export default function SearchAppBar() {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
+            <image src="./Components/logo.png"></image>
           </Typography>
           <Paper className={classes.root} className={classes.nav} >
       <Tabs
@@ -102,9 +102,9 @@ export default function SearchAppBar() {
         textColor="primary"
         centered
       >
-        <Tab label="Item One" />
-        <Tab label="Item Two" />
-        <Tab label="Item Three" />
+        <Tab label="People" />
+        <Tab label="Vehicles" />
+        <Tab label="Incidences" />
       </Tabs>
     </Paper>
           <div className={classes.search}>
