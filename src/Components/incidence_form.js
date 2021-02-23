@@ -46,7 +46,7 @@ export default function FormPropsTextFields() {
         <div>
         <TextField
             id="standard-number"
-            label="Badge Number"
+            label="IR Number"
             type="number"
             InputLabelProps={{
               shrink: true,
