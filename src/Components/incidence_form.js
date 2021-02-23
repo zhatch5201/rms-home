@@ -6,6 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import { TextareaAutosize } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,13 +37,21 @@ export default function FormPropsTextFields() {
     const [relevance, setRelevance] = React.useState('');
 
     const handleChange = (event) => {
-      setAge(event.target.value);
+      setRelevance(event.target.value);
   };
   
     return (
       <form className={classes.root} noValidate autoComplete="off">
+        <h1>Report on Incident</h1>
         <div>
-          <TextField required id="standard-required" label="IR Number" defaultValue="Hello World" />
+        <TextField
+            id="standard-number"
+            label="Badge Number"
+            type="number"
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
           <TextField
             id="datetime-local"
             label="Time of Incident"
@@ -53,56 +62,70 @@ export default function FormPropsTextFields() {
               shrink: true,
             }}
           />
-          <TextField required id="standard-required" label="Incident Type" defaultValue="Hello World" />
-          <TextField required id="standard-required" label="Location" defaultValue="Hello World" />
+          <TextField required id="standard-required" label="Incident Type" defaultValue="" />
+          <TextField required id="standard-required" label="Location" defaultValue="" />
+        </div>
+        <h2>Suspects</h2>
+        <div>
           <TextField required id="standard-required" label="Last Name" defaultValue="Doe" />
           <TextField required id="standard-required" label="First Name" defaultValue="John" />
-          <TextField required id="standard-required" label="Middle Name or Initial" defaultValue="" />
+          <TextField required id="standard-required" label="Middle Name or Initial" defaultValue="A." />
           <FormControl className={classes.formControl}>
-            <InputLabel id="demo-simple-select-label">Age</InputLabel>
+            <InputLabel id="demo-simple-select-label">Relevance</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={relevance}
               onChange={handleChange}
             >
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
+              <MenuItem value={"RP"}>RP</MenuItem>
+              <MenuItem value={"W"}>W</MenuItem>
+              <MenuItem value={"V"}>V</MenuItem>
+              <MenuItem value={"IL"}>IL</MenuItem>
+              <MenuItem value={"S"}>S</MenuItem>
             </Select>
           </FormControl>
-
-
-          {/* <TextField disabled id="standard-disabled" label="Disabled" defaultValue="Hello World" />
-          <TextField
-            id="standard-password-input"
-            label="Password"
-            type="password"
-            autoComplete="current-password"
-          />
-          <TextField
-            id="standard-read-only-input"
-            label="Read Only"
-            defaultValue="Hello World"
-            InputProps={{
-              readOnly: true,
-            }}
-          />
+        </div>
+        <h2>Narrative</h2>
+        <div>
+        <TextareaAutosize rowsMin={10}
+          id="filled-full-width"
+          label="Narrative"
+          style={{ 
+            margin: 8 ,
+            width: 1000
+          }}
+          placeholder=""
+          helperText=""
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          variant="filled"
+        />
+        </div>
+        <h2>Signature</h2>
+        <div>
+          <TextField required id="standard-required" label="Reporting Officer" defaultValue=""/>
           <TextField
             id="standard-number"
-            label="Number"
+            label="Badge Number"
             type="number"
             InputLabelProps={{
               shrink: true,
             }}
           />
-          <TextField id="standard-search" label="Search field" type="search" />
           <TextField
-            id="standard-helperText"
-            label="Helper text"
-            defaultValue="Default Value"
-            helperText="Some important text"
-          /> */}
+            id="datetime-local"
+            label="Time of Filed Report"
+            type="datetime-local"
+            defaultValue="YYYY-MM-DDT"
+            className={classes.textField}
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
         </div>
         </form>
     );
