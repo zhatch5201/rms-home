@@ -1,18 +1,15 @@
+import GetPeople from './Components/get_people';
 import PeopleGrid from './Components/people_grid';
 import PersonCard from './Components/person_card';
-import BottomNavbar from './firebase/bottom_navbar';
-import NavBar from './firebase/nav_bar';
-import IncidenceForm from './Components/incidence_form';
-
+import NavBar from './firebase/nav_bar'
+import IncidenceList from './Components/incidence_list'
 import './App.css';
 
 function App() {
-
-  return (
+  return(
   <div>
      <NavBar /><br />
-     <IncidenceForm/><br/>
-
+     <IncidenceList /><br />
   </div>
   );
 }

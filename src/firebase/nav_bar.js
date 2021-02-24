@@ -1,7 +1,6 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
@@ -11,6 +10,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import Logo from './logo.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -83,30 +83,28 @@ export default function SearchAppBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
+         
+
+          <div>
+            <img src={Logo} width="200px" height="75px"></img>
+          </div>
+
           <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
           </Typography>
           <Paper className={classes.root} className={classes.nav} >
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        indicatorColor="primary"
-        textColor="primary"
-        centered
-      >
-        <Tab label="Item One" />
-        <Tab label="Item Two" />
-        <Tab label="Item Three" />
-      </Tabs>
-    </Paper>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              indicatorColor="primary"
+              textColor="primary"
+              centered
+            >
+              <Tab label="People" />
+              <Tab label="Vehicles" />
+              <Tab label="Incidents" />
+
+            </Tabs>
+          </Paper>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
