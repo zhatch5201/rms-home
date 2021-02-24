@@ -4,7 +4,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 
 import Paper from '@material-ui/core/Paper';
@@ -15,6 +14,7 @@ import Logo from './logo.png';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    background: "orange",
   },
   nav: {
     width: '500px',
@@ -90,13 +90,14 @@ export default function SearchAppBar() {
           </div>
 
           <Typography className={classes.title} variant="h6" noWrap>
+            West-MEC RMS (placeholder)
           </Typography>
           <Paper className={classes.root} className={classes.nav} >
             <Tabs
               value={value}
               onChange={handleChange}
-              indicatorColor="primary"
-              textColor="primary"
+              indicatorColor="warning"
+              textColor="warning"
               centered
             >
               <Tab label="People" />
