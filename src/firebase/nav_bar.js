@@ -83,10 +83,6 @@ export default function SearchAppBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-<<<<<<< HEAD
-          <Typography className={classes.title} variant="h6" noWrap>
-            West-MEC RMS (placeholder)
-=======
          
 
           <div>
@@ -94,7 +90,6 @@ export default function SearchAppBar() {
           </div>
 
           <Typography className={classes.title} variant="h6" noWrap>
->>>>>>> NewBranchOffOldBranch
           </Typography>
           <Paper className={classes.root} className={classes.nav} >
             <Tabs
@@ -106,11 +101,8 @@ export default function SearchAppBar() {
             >
               <Tab label="People" />
               <Tab label="Vehicles" />
-<<<<<<< HEAD
               <Tab label="Incidents" />
-=======
-              <Tab label="Incidences" />
->>>>>>> NewBranchOffOldBranch
+
             </Tabs>
           </Paper>
           <div className={classes.search}>
