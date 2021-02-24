@@ -5,8 +5,6 @@ import { app as firebase } from "./firebase";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { Link } from 'react-router-dom';
 
-
-
 export default function PeopleGrid() {
    // ================================== Get People stuff ==================================
    const [people, setPeople] = useState([]);
