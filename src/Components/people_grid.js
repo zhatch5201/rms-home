@@ -1,10 +1,12 @@
 import * as React from 'react';
 import { useState, useEffect, Fragment } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
-import firebase from "./firebase";
+import { app as firebase } from "./firebase";
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { Link } from 'react-router-dom';
 
 export default function PeopleGrid() {
+   // ================================== Get People stuff ==================================
    const [people, setPeople] = useState([]);
    const [loading, setLoading] = useState(true);
    const ref = firebase.firestore().collection("People");
@@ -29,17 +31,22 @@ export default function PeopleGrid() {
    if (loading) {
       return (<CircularProgress color="secondary" />);
    }
+   // ================================== Get People stuff ==================================
+   // ================================== Link Styles ==================================
 
-   
+   // ================================== Link Styles ==================================
+
 
    const columns = [
-      { field: 'id', headerName: 'ID', width: 100 },
-
-      { field: 'first_name', headerName: 'First name', width: 130 },
-      { field: 'last_name', headerName: 'Last name', width: 130 },
-      { field: 'middle_name', headerName: 'Mid In.', width: 130, },
+      {
+         field: 'fullName', headerName: 'Full name', sortable: false, width: 160, renderCell: (person_fields) => {
+            return (
+               <Link to={`/people/${person_fields.getValue('id')}`}>{person_fields.getValue('first_name')} {person_fields.getValue('last_name')}</Link>
+            );
+         }
+      },
       { field: 'address', headerName: 'Address', width: 150 },
-      // { field: 'fullName', headerName: 'Full name', description: 'This column has a value getter and is not sortable.', sortable: false, width: 160, valueGetter: (params) => `${params.getValue('firstName') || ''} ${params.getValue('lastName') || ''}`, },
+
    ];
 
    const rows = people;
@@ -51,7 +58,7 @@ export default function PeopleGrid() {
          </div>
       </Fragment>
 
-      
+
    );
 }
 
