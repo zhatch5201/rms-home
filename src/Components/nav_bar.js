@@ -1,17 +1,14 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-
-import Paper from '@material-ui/core/Paper';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+import { Link } from 'react-router-dom';
 import Logo from './logo.png';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -72,39 +69,49 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
+const buttonStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  },
+  button: {
+    background: 'rgba(100, 100, 100, 0.45)'
+  },
+  link: {
+    // background: 'white',
+    color: 'white',
+    textDecoration: 'none'
+  }
+}));
 export default function SearchAppBar() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const button_classes = buttonStyles();
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-         
+
 
           <div>
-            <img src={Logo} width="200px" height="75px"></img>
+            <Link to="/"><img src={Logo} alt="rms-logo" width="200px" height="75px" /></Link>
           </div>
 
           <Typography className={classes.title} variant="h6" noWrap>
           </Typography>
-          <Paper className={classes.root} className={classes.nav} >
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              indicatorColor="primary"
-              textColor="primary"
-              centered
-            >
-              <Tab label="People" />
-              <Tab label="Vehicles" />
-              <Tab label="Incidences" />
-            </Tabs>
-          </Paper>
+          {/* <Paper className={classes.root} > */}
+          <div className={button_classes.root}>
+            <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
+              <Button className={button_classes.button}><Link className={button_classes.link} to='/incidents'>Incidents</Link></Button>
+              <Button className={button_classes.button}><Link className={button_classes.link} to='/people/03db4904-8384-4a4d-b391-7c1600ff7bcd'>People</Link></Button>
+              <Button className={button_classes.button}><Link className={button_classes.link} to='/vehicles'>Vehicles</Link></Button>
+            </ButtonGroup>
+          </div>
+          {/* </Paper> */}
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />

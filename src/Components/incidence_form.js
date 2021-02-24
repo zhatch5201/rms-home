@@ -60,7 +60,7 @@ export default function FormPropsTextFields() {
     <form className={classes.root} onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
       <h1>Report an Incident</h1>
       <div>
-        <TextField inputRef={register} name="uuid" id="standard-number" defaultValue={IR_Number()} label="IR Number (Readonly)" type="string" InputLabelProps={{ shrink: true, }} />
+        <TextField inputRef={register} name="uuid" id="standard-number" value={IR_Number()} label="IR Number (Readonly)" type="string" InputLabelProps={{ shrink: true, }} />
         <TextField inputRef={register} id="datetime-local" name="TimeofIncident" label="Time of Incident" type="datetime-local" defaultValue="YYYY-MM-DDT" className={classes.textField} InputLabelProps={{ shrink: true, }} />
         <TextField inputRef={register} required id="standard-required" name="IncidentType" label="Incident Type" defaultValue="" />
         <TextField inputRef={register} required id="standard-required" name="Location" label="Location" defaultValue="" />

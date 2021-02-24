@@ -145,13 +145,7 @@ export default function NavigationBar() {
                   <Button onClick={logout}>Logout</Button>
                </Typography>
                {/* ========================= Button Group ======================== */}
-               <div className={button_classes.root}>
-                  <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
-                     <Button><Link className={button_classes.link} to='/incidents'>Incidents</Link></Button>
-                     <Button><Link className={button_classes.link} to='/people/03db4904-8384-4a4d-b391-7c1600ff7bcd'>People</Link></Button>
-                     <Button><Link className={button_classes.link} to='/vehicles'>Vehicles</Link></Button>
-                  </ButtonGroup>
-               </div>
+
                {/* ========================= Button Group ======================== */}
                <div className={app_bar_classes.search}>
                   <div className={app_bar_classes.searchIcon}>
