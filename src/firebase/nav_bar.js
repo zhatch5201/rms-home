@@ -11,6 +11,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import Logo from './logo.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -83,30 +84,27 @@ export default function SearchAppBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
+         
+
+          <div>
+            <img src={Logo} width="200px" height="75px"></img>
+          </div>
+
           <Typography className={classes.title} variant="h6" noWrap>
-            <image src="./Components/logo.png"></image>
           </Typography>
           <Paper className={classes.root} className={classes.nav} >
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        indicatorColor="primary"
-        textColor="primary"
-        centered
-      >
-        <Tab label="People" />
-        <Tab label="Vehicles" />
-        <Tab label="Incidences" />
-      </Tabs>
-    </Paper>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              indicatorColor="primary"
+              textColor="primary"
+              centered
+            >
+              <Tab label="People" />
+              <Tab label="Vehicles" />
+              <Tab label="Incidences" />
+            </Tabs>
+          </Paper>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
