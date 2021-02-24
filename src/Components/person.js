@@ -63,37 +63,32 @@ const accordionStyles = makeStyles((theme) => ({
 }));
 
 
-export default function Test() {
+export default function PersonCard() {
+   let person_query_raw = window.location.pathname;
+   const person_query = person_query_raw.substring(8, person_query_raw.length);
    const classes = cardStyles();
    const accordionClasses = accordionStyles();
    // Has to load whole People collection to get random person... for now...
-   const [people, setPeople] = useState([]);
+   const [person, setPeople] = useState();
    const [loading, setLoading] = useState(true);
    const ref = firebase.firestore().collection("People");
-   var person;
-   async function getPeople() {
-      setLoading(true);
-      ref.onSnapshot((querySnapshot) => {
-         const items = [];
-         querySnapshot.forEach((person) => {
-            items.push(person.data());
-         });
-         setPeople(items);
-         setLoading(false);
-         // console.log(people);
-      });
+   // var person;
+   async function getPerson() {
+      const doc = await ref.doc(person_query).get();
+      setPeople(doc.data());
+      setLoading(false);
+      return doc.data();
    }
-
    useEffect(() => {
-      getPeople();
+      getPerson();
    }, []);
 
    if (loading) {
       return (<h1>Loading...</h1>);
-   } else {
-      person = people[Math.floor(Math.random() * people.length)];
    }
-   console.log(person);
+
+   // console.log(people);
+   console.log(`HELOOOOLLOAEPIFHAEOIFH ${JSON.stringify(person, null, 4)}`);
    // Has to load whole People collection to get random person... for now...
    // Card content and integration
 
