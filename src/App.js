@@ -11,6 +11,7 @@ function App() {
      <NavBar /><br />
      <IncidenceList /><br />
   </div>
+  
   );
 }
 
