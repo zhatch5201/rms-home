@@ -14,7 +14,7 @@ import Logo from './logo.png';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    background: "orange",
+    background: "orange"
   },
   nav: {
     width: '500px',
@@ -90,7 +90,6 @@ export default function SearchAppBar() {
           </div>
 
           <Typography className={classes.title} variant="h6" noWrap>
-            West-MEC RMS (placeholder)
           </Typography>
           <Paper className={classes.root} className={classes.nav} >
             <Tabs
