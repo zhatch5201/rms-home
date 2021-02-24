@@ -10,6 +10,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import Logo from './logo.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -82,8 +83,18 @@ export default function SearchAppBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
+<<<<<<< HEAD
           <Typography className={classes.title} variant="h6" noWrap>
             West-MEC RMS (placeholder)
+=======
+         
+
+          <div>
+            <img src={Logo} width="200px" height="75px"></img>
+          </div>
+
+          <Typography className={classes.title} variant="h6" noWrap>
+>>>>>>> NewBranchOffOldBranch
           </Typography>
           <Paper className={classes.root} className={classes.nav} >
             <Tabs
@@ -95,7 +106,11 @@ export default function SearchAppBar() {
             >
               <Tab label="People" />
               <Tab label="Vehicles" />
+<<<<<<< HEAD
               <Tab label="Incidents" />
+=======
+              <Tab label="Incidences" />
+>>>>>>> NewBranchOffOldBranch
             </Tabs>
           </Paper>
           <div className={classes.search}>
