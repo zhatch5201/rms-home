@@ -3,10 +3,15 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { TextareaAutosize } from '@material-ui/core';
+// ========================= Zack's Stuff =========================
+import { uuid } from 'uuidv4';
+import { useForm } from 'react-hook-form';
+import firebase from 'firebase';
+// ========================= Zack's Stuff =========================
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,66 +38,63 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 export default function FormPropsTextFields() {
-    const classes = useStyles();
-    const [relevance, setRelevance] = React.useState('');
+  let submittedForm;
+  const classes = useStyles();
 
-    const handleChange = (event) => {
-      setRelevance(event.target.value);
+  // ========================= Zack's Stuff =========================
+  const IR_Number = () => {
+    let year = new Date().getFullYear();
+    // console.log(year.getFullYear());
+    let id = uuid(1);
+    return `${year}:${id}`;
   };
-  
-    return (
-      <form className={classes.root} noValidate autoComplete="off">
-        <h1>Report on Incident</h1>
-        <div>
-        <TextField
-            id="standard-number"
-            label="IR Number"
-            type="number"
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
-          <TextField
-            id="datetime-local"
-            label="Time of Incident"
-            type="datetime-local"
-            defaultValue="YYYY-MM-DDT"
-            className={classes.textField}
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
-          <TextField required id="standard-required" label="Incident Type" defaultValue="" />
-          <TextField required id="standard-required" label="Location" defaultValue="" />
-        </div>
-        <h2>Suspects</h2>
-        <div>
-          <TextField required id="standard-required" label="Last Name" defaultValue="Doe" />
-          <TextField required id="standard-required" label="First Name" defaultValue="John" />
-          <TextField required id="standard-required" label="Middle Name or Initial" defaultValue="A." />
-          <FormControl className={classes.formControl}>
-            <InputLabel id="demo-simple-select-label">Relevance</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={relevance}
-              onChange={handleChange}
-            >
-              <MenuItem value={"RP"}>RP</MenuItem>
-              <MenuItem value={"W"}>W</MenuItem>
-              <MenuItem value={"V"}>V</MenuItem>
-              <MenuItem value={"IL"}>IL</MenuItem>
-              <MenuItem value={"S"}>S</MenuItem>
-            </Select>
-          </FormControl>
-        </div>
-        <h2>Narrative</h2>
-        <div>
-        <TextareaAutosize rowsMin={10}
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => {
+    submittedForm = data;
+    console.log(`The form submitted was: `, submittedForm);
+    firebase.firestore().collection('Incidents').doc(submittedForm.uuid).set(submittedForm);
+  };
+  // ========================= Zack's Stuff =========================
+
+  return (
+    <form className={classes.root} onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
+      <h1>Report an Incident</h1>
+      <div>
+        <TextField inputRef={register} name="uuid" id="standard-number" value={IR_Number()} label="IR Number (Readonly)" type="string" InputLabelProps={{ shrink: true, }} />
+        <TextField inputRef={register} id="datetime-local" name="TimeofIncident" label="Time of Incident" type="datetime-local" defaultValue="YYYY-MM-DDT" className={classes.textField} InputLabelProps={{ shrink: true, }} />
+        <TextField inputRef={register} required id="standard-required" name="IncidentType" label="Incident Type" defaultValue="" />
+        <TextField inputRef={register} required id="standard-required" name="Location" label="Location" defaultValue="" />
+      </div>
+      <h2>People Involved</h2>
+      <div>
+        <TextField inputRef={register} required id="standard-required" label="Last Name" name="LastName" placeholder="Doe" />
+        <TextField inputRef={register} required id="standard-required" label="First Name" name="FirstName" placeholder="John" />
+        <TextField inputRef={register} required id="standard-required" label="Middle Name or Initial" name="MiddleName" placeholder="A." />
+        <FormControl className={classes.formControl}>
+          <InputLabel name="relevance" id="demo-simple-select-label">Relevance</InputLabel>
+          <Select
+            name="relevance"
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+          >
+            <MenuItem name="RP" value="RP">RP</MenuItem>
+            <MenuItem name="W" value="W">W</MenuItem>
+            <MenuItem name="V" value="V">V</MenuItem>
+            <MenuItem name="IL" value="IL">IL</MenuItem>
+            <MenuItem name="S" value="S">S</MenuItem>
+          </Select>
+        </FormControl>
+      </div>
+      <h2>Narrative</h2>
+      <div>
+        <TextareaAutosize
+          ref={register}
+          rowsMin={10}
           id="filled-full-width"
           label="Narrative"
-          style={{ 
-            margin: 8 ,
+          name="narrative"
+          style={{
+            margin: 8,
             width: 1000
           }}
           placeholder=""
@@ -104,29 +106,34 @@ export default function FormPropsTextFields() {
           }}
           variant="filled"
         />
-        </div>
-        <h2>Signature</h2>
-        <div>
-          <TextField required id="standard-required" label="Reporting Officer" defaultValue=""/>
-          <TextField
-            id="standard-number"
-            label="Badge Number"
-            type="number"
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
-          <TextField
-            id="datetime-local"
-            label="Time of Filed Report"
-            type="datetime-local"
-            defaultValue="YYYY-MM-DDT"
-            className={classes.textField}
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
-        </div>
-        </form>
-    );
+      </div>
+      <h2>Signature</h2>
+      <div>
+        <TextField inputRef={register} required name="Reporting Officer" id="standard-required" label="Reporting Officer" defaultValue="" />
+        <TextField
+          inputRef={register}
+          id="standard-number"
+          name="BadgeNumber"
+          label="Badge Number"
+          type="number"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+        <TextField
+          inputRef={register}
+          name="TimeofFiledReport"
+          id="datetime-local"
+          label="TimeofFiledReport"
+          type="datetime-local"
+          defaultValue="YYYY-MM-DDT"
+          className={classes.textField}
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+      </div>
+      <input type="submit" />
+    </form>
+  );
 }

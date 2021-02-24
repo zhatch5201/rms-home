@@ -14,13 +14,13 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
   },
   button: {
-      width: 250,
-      marginLeft: 1100,
-      border: 2,
-      fontSize: 12,
-      borderRadius: 10,
-      boxShadow: theme.boxShadow,
-      flexWrap: 'nowrap',
+    width: 250,
+    marginLeft: 1100,
+    border: 2,
+    fontSize: 12,
+    borderRadius: 10,
+    boxShadow: theme.boxShadow,
+    flexWrap: 'nowrap',
   },
 }));
 
@@ -43,10 +43,10 @@ export default function VirtualizedList() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-         <Button variant="contained" color="primary" className={classes.button}>
-      New Incidence Form
+      <Button variant="contained" color="primary" className={classes.button}>
+        New Incidence Form
     </Button>
-      <FixedSizeList height={400} width={300} itemSize={46} itemCount={200}>
+      <FixedSizeList height={400} width={300} itemSize={45} itemCount={1}>
         {renderRow}
       </FixedSizeList>
     </div>
