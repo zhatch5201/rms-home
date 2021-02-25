@@ -18,7 +18,7 @@ function App() {
       <Router>
         <NewNav />
         <Switch>
-          <Route path='/people' component={VehicleList} />
+          <Route path='/people' component={PeoplePage} />
           <Route path='/incidents' component={IncidencePage} />
           <Route path='/home' exact component={PeopleGrid} />
           <Route path='/' exact component={PeopleGrid} />
