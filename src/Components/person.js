@@ -20,8 +20,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const cardStyles = makeStyles({
    root: {
-      background: '#26393a',
-      color: '#c4ebd7',
+      background: '#ffb938',
+      color: 'amber',
       minWidth: 275,
       maxWidth: '33vw',
       margin: '5vw auto'
@@ -36,14 +36,14 @@ const cardStyles = makeStyles({
       margin: '-19px 0px 0px 0px'
    },
    td: {
-      color: '#b47865',
+      color: '#8c6d32',
       textAlign: 'right'
    }
 });
 
 const accordionStyles = makeStyles((theme) => ({
    bottom: {
-      background: '#418f86',
+      background: '#8f774a',
       // width: '100px',
    },
    heading: {
