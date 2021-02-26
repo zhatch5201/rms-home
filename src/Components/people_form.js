@@ -3,15 +3,20 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
-
-
+// Zack
+import { useForm, Controller } from 'react-hook-form';
+import uuid from 'uuidv4';
+import firebase from 'firebase';
+// Zack
 
 const useStyles = makeStyles((theme) => ({
     root: {
+        width: '100vw',
+        margin: 'auto',
+        // margin: '2em auto',
         '& .MuiTextField-root': {
             margin: theme.spacing(1),
             width: '25ch',
@@ -38,167 +43,153 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FormPropsTextFields() {
     const classes = useStyles();
-    const [state, setState] = React.useState('');
-    const [gender, setGender] = React.useState('');
-    const [eye, setEye] = React.useState('');
-    const [hair, setHair] = React.useState('');
+    // ========================= Zack's Stuff =========================
+    const { register, handleSubmit, control } = useForm();
+    let submittedForm;
+    var personObject = {
+        // id: uuid(),
+        report_code: '',
+        last_name: '',
+        first_name: '',
+        middle_name: '',
+        ssn: '',
+        driver_license: {
+            number: '',
+            state: '',
+            expiration: ''
+        },
+        hazard: '',
+        demographic: {
+            race: '',
+            sex: '',
+            height: '',
+            weight: '',
+            eye_color: '',
+            hair_color: '',
+            date_of_birth: '',
+            age: '',
+            special_features: {
+                face: '',
+                body: '',
+                arms: ''
+            }
+        },
+        address: '',
+        phone_number: '',
+        known_incidents: [],
+        vehicles: [],
+        gang_affiliated: '',
+        mugshots: ''
+    };
 
-    const handleState = (event) => {
-        setState(event.target.value);
+    const onSubmit = (data) => {
+        submittedForm = data;
+        console.log(`The form submitted was: `, submittedForm);
+        // firebase.firestore().collection('People').doc(submittedForm.uuid).set(submittedForm);
     };
-    const handleGender = (event) => {
-        setGender(event.target.value);
-    };
-    const handleEye = (event) => {
-        setEye(event.target.value);
-    };
-    const handleHair = (event) => {
-        setHair(event.target.value);
-    }
-
+    // ========================= Zack's Stuff =========================
     return (
-        <form className={classes.root} noValidate autoComplete="off">
-            <div>
+        <>
+            <form className={classes.root} onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
                 <h1>File a Person's Report</h1>
                 <h2>Demographics</h2>
-                <TextField required id="standard-required" label="Last Name" defaultValue="" />
-                <TextField required id="standard-required" label="First Name" defaultValue="" />
-                <TextField required id="standard-required" label="Middle Name or Initial" defaultValue="" />
-                <br />
-                <TextField
-                    id="standard-number"
-                    label="SSN"
-                    type="number"
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                />
+                <TextField inputRef={register} required name="last_name" placeholder="Doe" label="Last Name" />
+                <TextField inputRef={register} required name="first_name" placeholder="John" label="First Name" />
+                <TextField inputRef={register} required name="middle_name" placeholder="F" label="Middle Name or Initial" />
                 <br />
                 {/* placeholder until figure out what to do for license */}
-                <TextField required id="standard-required" label="License" defaultValue="placeholder" />
+                <TextField inputRef={register} name="number" required label="License" placeholder="AZ#######" />
                 <FormControl className={classes.formControl}>
                     <InputLabel id="demo-simple-select-label">State</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={state}
-                        onChange={handleState}
-                    >
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
+                    <Controller as={
+                        <Select>
+                            <MenuItem value='AZ'>AZ</MenuItem>
+                            <MenuItem value='CA'>CA</MenuItem>
+                            <MenuItem value='TX'>TX</MenuItem>
+                        </Select>}
+                        control={control}
+                        defaultValue="AZ"
+                        name="state" />
                 </FormControl>
                 <TextField
+                    inputRef={register}
+                    name="expiration"
                     id="expDate"
                     label="Exp. Date"
                     type="date"
-                    defaultValue="mm-dd-yyyy"
                     className={classes.textField}
                     InputLabelProps={{
                         shrink: true,
                     }}
                 />
+                <TextField
+                    inputRef={register}
+                    name="ssn"
+                    label="SSN"
+                    type="number"
+                />
                 <br />
-                <TextField required id="standard-required" label="Race" defaultValue="" />
+                <TextField inputRef={register} name="race" required label="Race" />
                 <FormControl className={classes.formControl}>
                     <InputLabel id="demo-simple-select-label">Gender</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={gender}
-                        onChange={handleGender}
-                    >
-                        <MenuItem value={'F'}>Female</MenuItem>
-                        <MenuItem value={'M'}>Male</MenuItem>
-                        <MenuItem value={'U'}>Unknown</MenuItem>
-                    </Select>
+                    <Controller as=
+                        {<Select>
+                            <MenuItem value={'F'}>Female</MenuItem>
+                            <MenuItem value={'M'}>Male</MenuItem>
+                            <MenuItem value={'U'}>Unknown</MenuItem>
+                        </Select>}
+                        control={control}
+                        defaultValue="U"
+                        name="sex"
+                    />
                 </FormControl>
-                <TextField
-                    id="standard-number"
-                    label="Height"
-                    type="number"
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                />
-                <TextField
-                    id="standard-number"
-                    label="Weight"
-                    type="number"
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                />
+                <TextField inputRef={register} name="height" label="Height" type="number" placeholder="###" />
+                <TextField inputRef={register} name="weight" label="Weight" type="number" placeholder="###" />
                 <br />
                 <FormControl className={classes.formControl}>
                     <InputLabel id="demo-simple-select-label">Eye Color</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={eye}
-                        onChange={handleEye}
-                    >
-                        <MenuItem value={'F'}>Female</MenuItem>
-                        <MenuItem value={'M'}>Male</MenuItem>
-                        <MenuItem value={'U'}>Unknown</MenuItem>
-                    </Select>
+                    <Controller as={
+                        <Select>
+                            <MenuItem value={'BRN'}>Brown</MenuItem>
+                            <MenuItem value={'BLK'}>Black</MenuItem>
+                            <MenuItem value={'BLU'}>Blue</MenuItem>
+                        </Select>}
+                        control={control}
+                        defaultValue="BLU"
+                        name="eye_color" />
                 </FormControl>
                 <FormControl className={classes.formControl}>
                     <InputLabel id="demo-simple-select-label">Hair Color</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={hair}
-                        onChange={handleHair}
-                    >
-                        <MenuItem value={'F'}>Female</MenuItem>
-                        <MenuItem value={'M'}>Male</MenuItem>
-                        <MenuItem value={'U'}>Unknown</MenuItem>
-                    </Select>
+                    <Controller as=
+                        {<Select>
+                            <MenuItem value={'BRN'}>Brown</MenuItem>
+                            <MenuItem value={'BLK'}>Black</MenuItem>
+                            <MenuItem value={'BLN'}>Blonde</MenuItem>
+                        </Select>}
+                        control={control}
+                        defaultValue="BLN"
+                        name="hair_color" />
                 </FormControl>
-                <TextField
-                    id="DateofBirth"
-                    label="Date of Birth"
-                    type="date"
-                    defaultValue="mm-dd-yyyy"
-                    className={classes.textField}
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                />
-                <TextField
-                    id="standard-number"
-                    label="age"
-                    type="number"
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                />
-                <br />
-                <h3>Scars</h3>
+                <TextField inputRef={register} name="date_of_birth" id="DateofBirth" label="Date of Birth" type="date" className={classes.textField} InputLabelProps={{ shrink: true, }} />
+                {/* <TextField inputRef={register} name="age" label="Age" type="number" InputLabelProps={{ shrink: true, }} /> */}
+                {/* <br /> */}
+                <h3>Features</h3>
                 <TextareaAutosize
-                    
                     rowsMin={5}
                     id="filled-full-width"
                     label="Narrative"
-                    name="narrative"
+                    name="features"
+                    placeholder="Tattoos, scars, noticeable features"
                     style={{
                         margin: 8,
-                        width: 300
+                        width: 200
                     }}
-                    placeholder=""
-                    helperText=""
-                    fullWidth
                     margin="normal"
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
                     variant="filled"
                 />
                 <br />
-                <h2>Other Information</h2>
-            </div>
-        </form>
+                <input type="submit" />
+            </form>
+        </>
     );
 }
