@@ -4,12 +4,14 @@ import NavigationBar from './Components/navbar';
 import IncidenceForm from './Components/incidence_form';
 import IncidenceList from './Components/incidence_list';
 import NewNav from './Components/nav_bar';
+import index from 'index.js';
 // Router
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
 function App() {
 
   return (
+    <Index />
     <>
       <Router>
         <NewNav />
