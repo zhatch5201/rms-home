@@ -41,7 +41,7 @@ export default function PeopleGrid() {
       {
          field: 'fullName', headerName: 'Full name', sortable: false, width: 160, renderCell: (person_fields) => {
             return (
-               <Link to={`/people/${person_fields.getValue('id')}`}>{person_fields.getValue('first_name')} {person_fields.getValue('last_name')}</Link>
+               <Link to={`/people/query_people/${person_fields.getValue('id')}`}>{person_fields.getValue('first_name')} {person_fields.getValue('last_name')}</Link>
             );
          }
       },

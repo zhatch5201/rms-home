@@ -16,6 +16,7 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { fromString } from 'uuidv4';
 // ============== Accordion Imports ===========
 
 const cardStyles = makeStyles({
@@ -64,8 +65,10 @@ const accordionStyles = makeStyles((theme) => ({
 
 
 export default function PersonCard() {
-   let person_query_raw = window.location.pathname;
-   const person_query = person_query_raw.substring(8, person_query_raw.length);
+   let person_query_raw = window.location.pathname.toString();
+   // console.log(person_query_raw);
+   const person_query = person_query_raw.substring(person_query_raw.length - 36, person_query_raw.length);
+   // console.log(person_query);
    const classes = cardStyles();
    const accordionClasses = accordionStyles();
    // Has to load whole People collection to get random person... for now...
@@ -88,7 +91,7 @@ export default function PersonCard() {
    }
 
    // console.log(people);
-   console.log(`HELOOOOLLOAEPIFHAEOIFH ${JSON.stringify(person, null, 4)}`);
+   // console.log(`HELOOOOLLOAEPIFHAEOIFH ${JSON.stringify(person, null, 4)}`);
    // Has to load whole People collection to get random person... for now...
    // Card content and integration
 
