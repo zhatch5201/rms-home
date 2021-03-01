@@ -20,6 +20,7 @@ function App() {
           <Route path='/people' exact component={LandingPagePeople} />
           <Route path='/people/grid' exact component={PeopleGrid} />
           <Route path='/people/query_people' component={PersonCard} />
+          <Route path='/people/query_people/:id' component={PeopleForm} />
           <Route path='/people/add_person' component={PeopleForm} />
           {/* People */}
           <Route path='/incidents' component={IncidenceForm} />
