@@ -6,10 +6,20 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+
+
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import Favorite from '@material-ui/icons/Favorite';
+import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 // Zack
 import { useForm, Controller } from 'react-hook-form';
 import uuid from 'uuidv4';
 import firebase from 'firebase';
+import { Hidden } from '@material-ui/core';
 // Zack
 
 const useStyles = makeStyles((theme) => ({
@@ -88,6 +98,17 @@ export default function FormPropsTextFields() {
         // firebase.firestore().collection('People').doc(submittedForm.uuid).set(submittedForm);
     };
     // ========================= Zack's Stuff =========================
+    const [state, setState] = React.useState({
+        checkedA: true,
+        checkedB: true,
+        checkedF: true,
+        checkedG: true,
+    });
+
+    const handleChange = (event) => {
+        setState({ ...state, [event.target.name]: event.target.checked });
+    };
+    
     return (
         <>
             <form className={classes.root} onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
@@ -97,7 +118,6 @@ export default function FormPropsTextFields() {
                 <TextField inputRef={register} required name="first_name" placeholder="John" label="First Name" />
                 <TextField inputRef={register} required name="middle_name" placeholder="F" label="Middle Name or Initial" />
                 <br />
-                {/* placeholder until figure out what to do for license */}
                 <TextField inputRef={register} name="number" required label="License" placeholder="AZ#######" />
                 <FormControl className={classes.formControl}>
                     <InputLabel id="demo-simple-select-label">State</InputLabel>
@@ -188,7 +208,52 @@ export default function FormPropsTextFields() {
                     variant="filled"
                 />
                 <br />
+                <TextField inputRef={register} name="address" label="Home Address" placeholder="" />
+                <TextField inputRef={register} name="number" label="Main Phone Number" type="number" placeholder="###" />
+                <br />
+                <h3>Relations</h3>
+                <TextareaAutosize
+                    rowsMin={5}
+                    id="filled-full-width"
+                    label="Relations"
+                    name="relations"
+                    placeholder=""
+                    style={{
+                        margin: 8,
+                        width: 200
+                    }}
+                    margin="normal"
+                    variant="filled"
+                />
+                {/* need a way to add mugshots */}
+                <input type="file"  accept="image/*" name="mugshot" id="mugshot" />
+                {/* ^^ working on uploading and displaying a mugshot */}
+                <br />
+                <FormControlLabel
+                    label="Gang Affiliation"
+                    control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
+                />
+                <FormControlLabel
+                    label="Hazardous"
+                    control={<Checkbox checked={state.checkedB} onChange={handleChange} name="checkedB" />}
+                />
+                <TextareaAutosize
+                    rowsMin={5}
+                    id="filled-full-width"
+                    label="Hazardous cont."
+                    name="hazardDesc"
+                    placeholder="Description of Hazard"
+                    style={{
+                        margin: 8,
+                        width: 200,
+                        // visibility: 'hidden' want to make it hidden until hazard box is checked
+                    }}
+                    margin="normal"
+                    variant="filled"
+                />
+                <br />
                 <input type="submit" />
+                <br />
             </form>
         </>
     );
