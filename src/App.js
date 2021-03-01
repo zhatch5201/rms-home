@@ -8,9 +8,7 @@ import PeopleGrid from './Components/people_grid';
 import VehicleList from './Components/vehicle_list'
 import PersonCard from './Components/person';
 import IncidenceForm from './Components/incidence_form';
-import IncidenceList from './Components/incidence_list';
 import PeopleForm from './Components/people_form';
-import NewNav from './Components/nav_bar';
 import LandingPagePeople from './Pages/landing_people';
 // Router
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
