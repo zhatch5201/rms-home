@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 function addperson(){
-  let personHTML = `<br /><div class="MuiFormControl-root MuiTextField-root"><label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required" data-shrink="false" for="standard-required" id="standard-required-label">Last Name<span aria-hidden="true" class="MuiFormLabel-asterisk MuiInputLabel-asterisk"> *</span></label><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" id="standard-required" name="LastName" placeholder="Doe" required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root MuiTextField-root"><label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required" data-shrink="false" for="standard-required" id="standard-required-label">First Name<span aria-hidden="true" class="MuiFormLabel-asterisk MuiInputLabel-asterisk"> *</span></label><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" id="standard-required" name="FirstName" placeholder="John" required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root MuiTextField-root"><label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required" data-shrink="false" for="standard-required" id="standard-required-label">Middle Name or Initial<span aria-hidden="true" class="MuiFormLabel-asterisk MuiInputLabel-asterisk"> *</span></label><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" id="standard-required" name="MiddleName" placeholder="A." required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root makeStyles-formControl-15"><label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated" data-shrink="false" name="relevance" id="demo-simple-select-label"></label><select><option inputtype="Radio" name="RP" value="RP">RP</option><option inputtype="Radio" name="W" value="W">W</option><option inputtype="Radio" name="V" value="V">V</option><option inputtype="Radio" name="IL" value="IL">IL</option><option inputtype="Radio" name="S" value="S">S</option></select></div>` 
+  let personHTML = `<br /><div class="MuiFormControl-root MuiTextField-root"><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" id="standard-required" name="LastName" placeholder="Doe" required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root MuiTextField-root"><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" id="standard-required" name="FirstName" placeholder="John" required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root MuiTextField-root"><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" id="standard-required" name="MiddleName" placeholder="A." required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root makeStyles-formControl-15"><select><option inputtype="Radio" name="RP" value="RP">RP</option><option inputtype="Radio" name="W" value="W">W</option><option inputtype="Radio" name="V" value="V">V</option><option inputtype="Radio" name="IL" value="IL">IL</option><option inputtype="Radio" name="S" value="S">S</option></select></div>` 
   let peopleDiv=document.getElementById('people')
   return peopleDiv.insertAdjacentHTML("beforeend", personHTML)
 }
@@ -73,7 +73,7 @@ export default function FormPropsTextFields() {
   // ========================= Zack's Stuff =========================
 
   return (
-    <form className={classes.root} onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
+    <form className={classes.root} onSubmit={handleSubmit(onSubmit)} autoComplete="off">
       <h1>Report an Incident</h1>
       <div>
         <TextField inputRef={register} name="uuid" id="standard-number" value={IR_Number()} label="IR Number (Readonly)" type="string" InputLabelProps={{ shrink: true, }} />
@@ -105,17 +105,11 @@ export default function FormPropsTextFields() {
       <h2>Vehicle Involved</h2>
       <div id="vehicle">
         <TextField inputRef={register} required id="standard-required" label="Vin Number" name="VinNumber" placeholder="" />
-        <TextField inputRef={register} required id="standard-required" label="First Name" name="FirstName" placeholder="John" />
-        <TextField inputRef={register} required id="standard-required" label="Middle Name or Initial" name="MiddleName" placeholder="A." />
+        <TextField inputRef={register} required id="standard-required" label="Make" name="Make" placeholder="Ford" />
+        <TextField inputRef={register} required id="standard-required" label="Model" name="Model" placeholder="Crown Victoria" />
         <FormControl className={classes.formControl}>
           <InputLabel name="relevance" id="demo-simple-select-label"></InputLabel>
-          <select>
-            <option inputType="Radio" name="RP" value="RP">RP</option>
-            <option inputType="Radio" name="W" value="W">W</option>
-            <option inputType="Radio" name="V" value="V">V</option>
-            <option inputType="Radio" name="IL" value="IL">IL</option>
-            <option inputType="Radio" name="S" value="S">S</option>
-          </select>
+          <input type="number" pattern="[0-9]{4}" />
         </FormControl>
       </div>
       <div>
