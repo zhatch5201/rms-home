@@ -162,7 +162,7 @@ export default function FormPropsTextFields() {
           inputRef={register}
           name="TimeofFiledReport"
           id="datetime-local"
-          label="TimeofFiledReport"
+          label="Time of Filed Report"
           type="datetime-local"
           defaultValue="YYYY-MM-DDT"
           className={classes.textField}

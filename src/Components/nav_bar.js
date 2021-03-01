@@ -98,7 +98,7 @@ export default function SearchAppBar() {
 
 
           <div>
-            <Link to="/"><img src={Logo} alt="rms-logo" width="200px" height="75px" /></Link>
+            <Link to="/"><img src={Logo} alt="rms-logo" width="400px" height="75px" /></Link>
           </div>
 
           <Typography className={classes.title} variant="h6" noWrap>
@@ -107,7 +107,7 @@ export default function SearchAppBar() {
           <div className={button_classes.root}>
             <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
               <Button className={button_classes.button}><Link className={button_classes.link} to='/incidents'>Incidents</Link></Button>
-              <Button className={button_classes.button}><Link className={button_classes.link} to='/people/03db4904-8384-4a4d-b391-7c1600ff7bcd'>People</Link></Button>
+              <Button className={button_classes.button}><Link className={button_classes.link} to='/people'>People</Link></Button>
               <Button className={button_classes.button}><Link className={button_classes.link} to='/vehicles'>Vehicles</Link></Button>
             </ButtonGroup>
           </div>
