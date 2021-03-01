@@ -6,6 +6,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { TextareaAutosize } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import Checkbox from '@material-ui/core/Checkbox';
 // ========================= Zack's Stuff =========================
 import { uuid } from 'uuidv4';
 import { useForm } from 'react-hook-form';
@@ -36,7 +38,21 @@ const useStyles = makeStyles((theme) => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  button: {
+    width: 250,
+    margin: 10,
+    marginLeft: 1090,
+    border: 2,
+    fontSize: 12,
+    borderRadius: 10,
+    flexWrap: 'nowrap',
+  },
 }));
+function addperson(){
+  let personHTML = `<br /><div class="MuiFormControl-root MuiTextField-root"><label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required" data-shrink="false" for="standard-required" id="standard-required-label">Last Name<span aria-hidden="true" class="MuiFormLabel-asterisk MuiInputLabel-asterisk"> *</span></label><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" id="standard-required" name="LastName" placeholder="Doe" required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root MuiTextField-root"><label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required" data-shrink="false" for="standard-required" id="standard-required-label">First Name<span aria-hidden="true" class="MuiFormLabel-asterisk MuiInputLabel-asterisk"> *</span></label><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" id="standard-required" name="FirstName" placeholder="John" required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root MuiTextField-root"><label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required" data-shrink="false" for="standard-required" id="standard-required-label">Middle Name or Initial<span aria-hidden="true" class="MuiFormLabel-asterisk MuiInputLabel-asterisk"> *</span></label><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" id="standard-required" name="MiddleName" placeholder="A." required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root makeStyles-formControl-15"><label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated" data-shrink="false" name="relevance" id="demo-simple-select-label"></label><select><option inputtype="Radio" name="RP" value="RP">RP</option><option inputtype="Radio" name="W" value="W">W</option><option inputtype="Radio" name="V" value="V">V</option><option inputtype="Radio" name="IL" value="IL">IL</option><option inputtype="Radio" name="S" value="S">S</option></select></div>` 
+  let peopleDiv=document.getElementById('people')
+  return peopleDiv.insertAdjacentHTML("beforeend", personHTML)
+}
 export default function FormPropsTextFields() {
   let submittedForm;
   const classes = useStyles();
@@ -66,24 +82,46 @@ export default function FormPropsTextFields() {
         <TextField inputRef={register} required id="standard-required" name="Location" label="Location" defaultValue="" />
       </div>
       <h2>People Involved</h2>
-      <div>
+      <div id="people">
         <TextField inputRef={register} required id="standard-required" label="Last Name" name="LastName" placeholder="Doe" />
         <TextField inputRef={register} required id="standard-required" label="First Name" name="FirstName" placeholder="John" />
         <TextField inputRef={register} required id="standard-required" label="Middle Name or Initial" name="MiddleName" placeholder="A." />
         <FormControl className={classes.formControl}>
-          <InputLabel name="relevance" id="demo-simple-select-label">Relevance</InputLabel>
-          <Select
-            name="relevance"
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-          >
-            <MenuItem name="RP" value="RP">RP</MenuItem>
-            <MenuItem name="W" value="W">W</MenuItem>
-            <MenuItem name="V" value="V">V</MenuItem>
-            <MenuItem name="IL" value="IL">IL</MenuItem>
-            <MenuItem name="S" value="S">S</MenuItem>
-          </Select>
+          <InputLabel name="relevance" id="demo-simple-select-label"></InputLabel>
+          <select>
+            <option inputType="Radio" name="RP" value="RP">RP</option>
+            <option inputType="Radio" name="W" value="W">W</option>
+            <option inputType="Radio" name="V" value="V">V</option>
+            <option inputType="Radio" name="IL" value="IL">IL</option>
+            <option inputType="Radio" name="S" value="S">S</option>
+          </select>
         </FormControl>
+      </div>
+      <div>
+      <Button onClick={addperson} variant="contained" color="primary" className={classes.button}>
+        New Person
+    </Button>
+      </div>
+      <h2>Vehicle Involved</h2>
+      <div id="vehicle">
+        <TextField inputRef={register} required id="standard-required" label="Vin Number" name="VinNumber" placeholder="" />
+        <TextField inputRef={register} required id="standard-required" label="First Name" name="FirstName" placeholder="John" />
+        <TextField inputRef={register} required id="standard-required" label="Middle Name or Initial" name="MiddleName" placeholder="A." />
+        <FormControl className={classes.formControl}>
+          <InputLabel name="relevance" id="demo-simple-select-label"></InputLabel>
+          <select>
+            <option inputType="Radio" name="RP" value="RP">RP</option>
+            <option inputType="Radio" name="W" value="W">W</option>
+            <option inputType="Radio" name="V" value="V">V</option>
+            <option inputType="Radio" name="IL" value="IL">IL</option>
+            <option inputType="Radio" name="S" value="S">S</option>
+          </select>
+        </FormControl>
+      </div>
+      <div>
+      <Button onClick={addperson} variant="contained" color="primary" className={classes.button}>
+        New Person
+    </Button>
       </div>
       <h2>Narrative</h2>
       <div>

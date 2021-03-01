@@ -1,49 +1,9 @@
-import React from 'react';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import * as React from 'react';
+import { DataGrid } from '@material-ui/data-grid';
 import Button from '@material-ui/core/Button';
-
-
-const StyledTableCell = withStyles((theme) => ({
-  head: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  body: {
-    fontSize: 14,
-  },
-}))(TableCell);
-
-const StyledTableRow = withStyles((theme) => ({
-  root: {
-    '&:nth-of-type(odd)': {
-      backgroundColor: theme.palette.action.hover,
-    },
-  },
-}))(TableRow);
-
-function createData(Vin, LP, Make, Model, Year) {
-  return { Vin, LP, Make, Model, Year };
-}
-
-const rows = [
-  createData(),
-  createData(),
-  createData(),
-  createData(),
-  createData(),
-];
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
-  table: {
-    minWidth: 700,
-  },
   button: {
     width: 250,
     margin: 10,
@@ -54,40 +14,47 @@ const useStyles = makeStyles({
     flexWrap: 'nowrap',
   },
 });
-export default function CustomizedTables() {
+const columns = [
+  { field: 'id', headerName: 'Vin', width: 70 },
+  { field: 'firstName', headerName: 'License Plate', width: 130 },
+  { field: 'lastName', headerName: 'Make', width: 130 },
+  {
+    field: 'age',
+    headerName: 'Model',
+    type: 'number',
+    width: 90,
+  },
+  {
+    field: 'fullName',
+    headerName: 'Year',
+    description: 'This column has a value getter and is not sortable.',
+    sortable: false,
+    width: 160,
+    valueGetter: (params) =>
+      `${params.getValue('firstName') || ''} ${params.getValue('lastName') || ''}`,
+  },
+];
+
+const rows = [
+  { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
+  { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
+  { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
+  { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
+  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
+  { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
+  { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
+  { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
+  { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
+];
+
+export default function DataTable() {
   const classes = useStyles();
-        
   return (
-    
-    <TableContainer component={Paper}>
-      
-      <Button variant="contained" color="primary" className={classes.button}>
-        New Vehicle Form
+    <div style={{ height: 400, width: '100%' }}>
+       <Button variant="contained" color="primary" className={classes.button}>
+        New Incidence Form
     </Button>
-      <Table className={classes.table} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Vin Number</StyledTableCell>
-            <StyledTableCell align="right">Liscense Plate</StyledTableCell>
-            <StyledTableCell align="right">Make</StyledTableCell>
-            <StyledTableCell align="right">Model</StyledTableCell>
-            <StyledTableCell align="right">Year</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.Vin}>
-              <StyledTableCell component="th" scope="row">
-                {row.Vin}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.LP}</StyledTableCell>
-              <StyledTableCell align="right">{row.Make}</StyledTableCell>
-              <StyledTableCell align="right">{row.Model}</StyledTableCell>
-              <StyledTableCell align="right">{row.Year}</StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+      <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection />
+    </div>
   );
 }
