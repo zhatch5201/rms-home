@@ -22,6 +22,19 @@ import firebase from 'firebase';
 import { Hidden } from '@material-ui/core';
 // Zack
 
+function addFeatures(){
+    let featuresHTML = `
+    <textarea rows="5" id="filled-full-width" label="Narrative" name="features" placeholder="Tattoos, scars, noticeable features" margin="normal" variant="filled" style="margin: 8px; width: 200px; height: 75px;"></textarea>`;
+    let featuresDiv = document.getElementById("featuresDiv");
+    return featuresDiv.insertAdjacentHTML("beforeend", featuresHTML);
+}
+function removeFeature(){
+    let featuresHTML = `
+    <textarea rows="5" id="filled-full-width" label="Narrative" name="features" placeholder="Tattoos, scars, noticeable features" margin="normal" variant="filled" style="margin: 8px; width: 200px; height: 75px;"></textarea>`;
+    let featuresDiv = document.getElementById("featuresDiv");
+    return 
+}
+
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '100vw',
@@ -194,6 +207,7 @@ export default function FormPropsTextFields() {
                 {/* <TextField inputRef={register} name="age" label="Age" type="number" InputLabelProps={{ shrink: true, }} /> */}
                 {/* <br /> */}
                 <h3>Features</h3>
+                <div id="featuresDiv">
                 <TextareaAutosize
                     rowsMin={5}
                     id="filled-full-width"
@@ -207,6 +221,8 @@ export default function FormPropsTextFields() {
                     margin="normal"
                     variant="filled"
                 />
+                </div>
+                <button onClick={addFeatures} variant="contained" color="primary" className={classes.button}>New Feature</button>
                 <br />
                 <TextField inputRef={register} name="address" label="Home Address" placeholder="" />
                 <TextField inputRef={register} name="number" label="Main Phone Number" type="number" placeholder="###" />
