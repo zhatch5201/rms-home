@@ -10,6 +10,7 @@ import PersonCard from './Components/person';
 import IncidenceForm from './Components/incidence_form';
 import PeopleForm from './Components/people_form';
 import LandingPagePeople from './Pages/landing_people';
+import PeopleSearch from './Components/people_search';
 // Router
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import { People } from '@material-ui/icons';
