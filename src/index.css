@@ -1,3 +1,7 @@
+html{
+  background: linear-gradient(rgb(255, 166, 0), rgb(255, 115, 0));
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -6,10 +10,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #ff9900;
   width: 75%;
+  -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 50px 50px 50px 50px rgba(0,0,0,0); 
+  box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 50px 50px 50px 50px rgba(0,0,0,0);
 }
-.gradient{
-  background: linear-gradient(rgb(255, 166, 0), rgb(255, 115, 0));
-}
+
 #logo{
   width: 15%;
   height: 15%;
@@ -22,57 +26,28 @@ code {
 
 /* Masthead */
 
-  /* Fade Animation */
-    .fade-carousel {
-      position: relative;
-      height: 100vh;
-    }
-    .fade-carousel .carousel-inner .item {
-      height: 100vh;
-    }
-    .fade-carousel .carousel-indicators > li {
-      margin: 0 2px;
-      background-color: #f39c12;
-      border-color: #f39c12;
-      opacity: .7;
-    }
-    .fade-carousel .carousel-indicators > li.active {
-    width: 10px;
-    height: 10px;
-    opacity: 1;
-    }
-  /* Fade Animation End */
-
-  /* Overlay */
-    .overlay {
-      position: absolute;
-      width: 100%;
-      height: 50%;
-      z-index: 2;
-      background-color: #080d15;
-      opacity: .7;
-    }
-  /* Overlay End */
+  .masthead{
+    width: 100%;
+  }
+  .masthead img{
+    width: 100%;
+  }
 
   /* Hero Headers */
     .hero {
-      position: relative;
       margin: auto;
       padding: 5em;
       z-index: 3;
       color: #fff;
       text-align: center;
-      
     }
     .hero h1 {
-      font-size: 6em;    
-      font-weight: bold;
+      font-size: 4em;    
       margin: 0;
       padding: 0;
     }
 
   /* Hero Headers End */
-
 
   /* Buttons */
     .btn.btn-lg {
@@ -91,16 +66,8 @@ code {
     }
   /* Buttons End */
 
-  /* Slides Backgrounds */
-    .masthead {
-    background-image: url(Components/masthead.jpg);
-    }
-  /* Slides Backgrounds End */
-
   /* Media */
-  @media screen and (min-width: 980px){
-    .hero { width: 980px; }    
-  }
+
   @media screen and (max-width: 640px){
     .hero h1 { font-size: 4em; }    
   }
@@ -109,8 +76,12 @@ code {
 /* Masthead End */
 
 /* Cards */
-  .cards{
+  .card{
     background-color: #ff9900;
+    border-radius: 50%;
+  }
+  .card img{
+    width: 120%;
   }
 /* End Cards */
 
@@ -160,7 +131,52 @@ code {
   }
   .footer-bs .footer-ns p { font-size:12px; color:rgba(255,255,255,0.70); }
 
-  @media (min-width: 768px) {
-  .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-left:solid 1px rgba(255,255,255,0.10); }
-  }
 /* Footer End */
+
+/* Back to top button */
+.scroll {
+  color: #fff;
+}
+
+#toTopBtn {
+  position: fixed;
+  bottom: 26px;
+  right: 39px;
+  z-index: 98;
+  padding: 21px;
+  background-color: hsla(5, 76%, 62%, .8)
+}
+
+.js .cd-top--fade-out {
+  opacity: .5
+}
+
+.js .cd-top--is-visible {
+  visibility: visible;
+  opacity: 1
+}
+
+.js .cd-top {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .3s, visibility .3s, background-color .3s
+}
+
+.cd-top {
+  position: fixed;
+  bottom: 20px;
+  bottom: var(--cd-back-to-top-margin);
+  right: 20px;
+  right: var(--cd-back-to-top-margin);
+  display: inline-block;
+  height: 40px;
+  height: var(--cd-back-to-top-size);
+  width: 40px;
+  width: var(--cd-back-to-top-size);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .05) !important;
+  background: url(https://res.cloudinary.com/dxfq3iotg/image/upload/v1571057658/cd-top-arrow.svg) no-repeat center 50%;
+  background-color: hsla(5, 76%, 62%, .8);
+  background-color: hsla(var(--cd-color-3-h), var(--cd-color-3-s), var(--cd-color-3-l), 0.8)
+}
+
+
