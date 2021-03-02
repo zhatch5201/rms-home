@@ -53,6 +53,11 @@ function addperson(){
   let peopleDiv=document.getElementById('people')
   return peopleDiv.insertAdjacentHTML("beforeend", personHTML)
 }
+function addvehicle(){
+  let vehicleHTML = `<br /><div class="MuiFormControl-root MuiTextField-root"><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" id="standard-required" name="VinNumber" placeholder="1HGBH41JXMN109186" required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root MuiTextField-root"><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" id="standard-required" name="Make" placeholder="Ford" required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root MuiTextField-root"><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" id="standard-required" name="Model" placeholder="Crown Victoria" required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root makeStyles-formControl-15"><input type="number" pattern="[0-9][0-9][0-9][0-9]"></div>` 
+  let vehicleDiv = document.getElementById('vehicle')
+  return vehicleDiv.insertAdjacentHTML("beforeend", vehicleHTML)
+}
 export default function FormPropsTextFields() {
   let submittedForm;
   const classes = useStyles();
@@ -104,17 +109,18 @@ export default function FormPropsTextFields() {
       </div>
       <h2>Vehicle Involved</h2>
       <div id="vehicle">
-        <TextField inputRef={register} required id="standard-required" label="Vin Number" name="VinNumber" placeholder="" />
+        <TextField inputRef={register} required id="standard-required" label="Vin Number" name="VinNumber" placeholder="1HGBH41JXMN109186" pattern= '[0-9]^[A-Z]{1,17}$'/>
         <TextField inputRef={register} required id="standard-required" label="Make" name="Make" placeholder="Ford" />
         <TextField inputRef={register} required id="standard-required" label="Model" name="Model" placeholder="Crown Victoria" />
         <FormControl className={classes.formControl}>
-          <InputLabel name="relevance" id="demo-simple-select-label"></InputLabel>
-          <input type="number" pattern="[0-9]{4}" />
+        <InputLabel name="Year" id="demo-simple-select-label"></InputLabel>
+          <h10>Year</h10>
+          <input type="number" pattern="[0-9]{1,4}" />
         </FormControl>
       </div>
       <div>
-      <Button onClick={addperson} variant="contained" color="primary" className={classes.button}>
-        New Person
+      <Button onClick={addvehicle} variant="contained" color="primary" className={classes.button}>
+        New Vehicle
     </Button>
       </div>
       <h2>Narrative</h2>

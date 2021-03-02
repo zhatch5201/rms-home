@@ -8,6 +8,7 @@ import PeopleGrid from './Components/people_grid';
 import VehicleList from './Components/vehicle_list'
 import PersonCard from './Components/person';
 import IncidenceForm from './Components/incidence_form';
+import VehicleForm from './Components/vehicle_form';
 import PeopleForm from './Components/people_form';
 import LandingPagePeople from './Pages/landing_people';
 // Router
