@@ -32,7 +32,7 @@ export default function LandingPagePeople() {
          <h1>Where would you like to go?</h1>
          {/* add these routes when you get home, something like `people/list and people/:uuid and people/new_person` */}
          <Link className={classes.link} to="/people/grid"><Button className={classes.button}>View People</Button></Link>
-         <Link className={classes.link} to="/people/query_people/0124dae7-2e75-4770-b7ad-58334f7f16be"><Button className={classes.button}>Search People</Button></Link>
+         <Link className={classes.link} to="/people/query_people"><Button className={classes.button}>Search People</Button></Link>
          <Link className={classes.link} to="/people/add_person"><Button className={classes.button}>Add Person</Button></Link>
       </div>
    );

@@ -1,19 +1,7 @@
 import * as React from 'react';
 import { DataGrid } from '@material-ui/data-grid';
-import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
-  button: {
-    width: 250,
-    margin: 10,
-    marginLeft: 1090,
-    border: 2,
-    fontSize: 12,
-    borderRadius: 10,
-    flexWrap: 'nowrap',
-  },
-});
+
 const columns = [
   { field: 'id', headerName: 'Vin', width: 70 },
   { field: 'firstName', headerName: 'License Plate', width: 130 },
@@ -48,12 +36,8 @@ const rows = [
 ];
 
 export default function DataTable() {
-  const classes = useStyles();
   return (
     <div style={{ height: 400, width: '100%' }}>
-       <Button variant="contained" color="primary" className={classes.button}>
-        New Incidence Form
-    </Button>
       <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection />
     </div>
   );

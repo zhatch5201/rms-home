@@ -31,8 +31,8 @@ export default function LandingPagePeople() {
       <div className={classes.root}>
          <h1>Where would you like to go?</h1>
          {/* add these routes when you get home, something like `people/list and people/:uuid and people/new_person` */}
-         <Link className={classes.link} to="/vehicles/list"><Button className={classes.button}>View Vehicles</Button></Link>
-         <Link className={classes.link} to="/vehicles/query_vehicle/0124dae7-2e75-4770-b7ad-58334f7f16be"><Button className={classes.button}>Search Vehicles</Button></Link>
+         <Link className={classes.link} to="/vehicles/grid"><Button className={classes.button}>View Vehicles</Button></Link>
+         <Link className={classes.link} to="/vehicles/query_vehicle"><Button className={classes.button}>Search Vehicles</Button></Link>
          <Link className={classes.link} to="/vehicles/add_vehicle"><Button className={classes.button}>Add Vehicle File</Button></Link>
       </div>
    );

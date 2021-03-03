@@ -43,7 +43,7 @@ export default function PrimarySearchAppBar() {
           <div className={classes.search}>
           <SearchIcon />
             <InputBase
-              placeholder="Search for People"
+              placeholder="Search for Vehicle"
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
