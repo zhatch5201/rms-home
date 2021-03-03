@@ -3,10 +3,10 @@ import IncidentsList from './Components/incidents_list';
 import PeopleGrid from './Components/people_grid';
 import VehicleList from './Components/vehicle_list';
 import PersonCard from './Components/person';
-import IncidenceForm from './Components/incidence_form';
+import IncidenceForm from './Components/incident_form';
 import VehicleForm from './Components/vehicle_form';
 import PeopleForm from './Components/people_form';
-import LandingPageIncident from './Pages/landing_incidence';
+import LandingPageIncident from './Pages/landing_incident';
 import LandingPagePeople from './Pages/landing_people';
 import LandingPageVehicle from './Pages/landing_vehicle';
 // Search Pages

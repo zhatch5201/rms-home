@@ -29,7 +29,7 @@ export default function LandingPagePeople() {
    return (
       <div className={classes.root}>
          <h1>Where would you like to go?</h1>
-         <Link className={classes.link} to="/incidents/grid"><Button className={classes.button}>View Incidences</Button></Link>
+         <Link className={classes.link} to="/incidents/grid"><Button className={classes.button}>View Incidents</Button></Link>
          <Link className={classes.link} to="/incidents/query_incident/0124dae7-2e75-4770-b7ad-58334f7f16be"><Button className={classes.button}>Search Incident</Button></Link>
          <Link className={classes.link} to="/incidents/add_incident"><Button className={classes.button}>Add Incident</Button></Link>
       </div>
