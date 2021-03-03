@@ -1,23 +1,10 @@
 import * as React from 'react';
 import { DataGrid } from '@material-ui/data-grid';
-import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
 import { app as firebase } from './firebase';
 import { useState, useEffect } from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { Link } from 'react-router-dom';
 
-const useStyles = makeStyles({
-  button: {
-    width: 250,
-    margin: 10,
-    marginLeft: 1090,
-    border: 2,
-    fontSize: 12,
-    borderRadius: 10,
-    flexWrap: 'nowrap',
-  },
-});
 
 
 export default function IncidentsList() {
@@ -47,7 +34,7 @@ export default function IncidentsList() {
   }
 
   const columns = [{
-    field: 'id', headerName: 'Full name', sortable: false, width: 350, renderCell: (incidents_fields) => {
+    field: 'id', headerName: 'Serial Number', sortable: false, width: 350, renderCell: (incidents_fields) => {
       return (
         <Link to={`/incidents/query_incident/${incidents_fields.getValue('id')}`}>{incidents_fields.getValue('id')}</Link>
       );
@@ -59,9 +46,6 @@ export default function IncidentsList() {
   const rows = Incidents;
   return (
     <div style={{ height: 400, width: '100%' }}>
-      <Button variant="contained" color="primary">
-        New Incidence Form
-      </Button>
       <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection />
     </div>
   );
