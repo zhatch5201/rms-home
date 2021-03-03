@@ -39,13 +39,14 @@ export default function PeopleGrid() {
 
    const columns = [
       {
-         field: 'fullName', headerName: 'Full name', sortable: false, width: 160, renderCell: (person_fields) => {
+         field: 'fullName', headerName: 'Full name', sortable: true, width: 160, renderCell: (person_fields) => {
             return (
                <Link to={`/people/query_people/${person_fields.getValue('id')}`}>{person_fields.getValue('first_name')} {person_fields.getValue('last_name')}</Link>
             );
          }
       },
       { field: 'address', headerName: 'Address', width: 150 },
+      { field: 'Emergency dropdown', headerName: '', width: 80 },
 
    ];
 

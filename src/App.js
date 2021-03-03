@@ -40,8 +40,8 @@ function App() {
           <Route path='/vehicles/query_vehicle/:id' component={VehicleForm} />
           <Route path='/vehicles/add_vehicle' component={VehicleForm} />
           {/* People */}
-          <Route path='/incidents' component={IncidenceForm} />
-          <Route path='/home' exact />
+          {/* <Route path='/incidents' component={IncidenceForm} /> */}
+          {/* <Route path='/home' exact /> */}
           <Route path='/' exact />
         </Switch>
       </Router>
