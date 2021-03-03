@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
     padding: 5,
     width: '25vw',
-    height: '15vh',
+    height: '13vh',
     margin: '27vh 36vw',
     background: '#b26a00',
     fontSize: '2em',
@@ -43,7 +43,7 @@ export default function PrimarySearchAppBar() {
           <div className={classes.search}>
           <SearchIcon />
             <InputBase
-              placeholder="Search for People"
+              placeholder="Search for Incident"
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
