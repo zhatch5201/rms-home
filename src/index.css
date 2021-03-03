@@ -29,8 +29,7 @@ code {
   .masthead{
     width: 100%;
   }
-  .masthead img{
-    width: 100%;
+  .masthead img{width: 100%;
   }
 
   /* Hero Headers */
@@ -78,11 +77,60 @@ code {
 /* Cards */
   .card{
     background-color: #ff9900;
-    border-radius: 50%;
   }
   .card img{
     width: 120%;
+    max-width: 130%;
+    margin: 1em;
   }
+
+  /* Card Animation */
+ 
+    .card{
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      min-height: 10em;
+      height: 100%;
+    }
+    .group {
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      min-height: 25em;
+      height: 100%;
+    }
+    .card:hover {
+      box-shadow: 8px 12px 31px -10px #ab98ab;
+    }
+    .card-body .card-title {
+      margin-bottom: 300px;
+      transition: 1.5s ease;
+    }
+    .card:hover .card-body .card-title {
+      margin-bottom: 0px;
+    }
+    .card-body {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      transition: 1.5s ease;
+    }
+    .card-content {
+      left: 0;
+      right: 0;
+      overflow: hidden;
+      width: 100%;
+      transition: 1.5s ease;
+    }
+    .card:hover .card-body {
+      height: 100%;
+      background-color: rgba(58, 44, 31, 0.651);
+    }
+    
+    /* End Card Animation */
 /* End Cards */
 
 /* Footer */
