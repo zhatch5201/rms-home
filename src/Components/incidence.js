@@ -1,3 +1,4 @@
+// ==================== Imports from Material-UI ===================
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -12,6 +13,7 @@ import AccordionDetails from "@material-ui/core/AccordionDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { fromString } from "uuidv4";
 
+// general styles
 const useStyles = makeStyles({
   root: {
     background: "#ffb938",
@@ -34,6 +36,7 @@ const useStyles = makeStyles({
     textAlign: "right"
   }
 });
+// styles for dropdown
 const accordionStyles = makeStyles((theme) => ({
   bottom: {
     background: "#8f774a"
@@ -57,7 +60,7 @@ const accordionStyles = makeStyles((theme) => ({
 
 export default function SimpleCard() {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
+  // uses general styles
   const accordionClasses = accordionStyles();
 
   return (
@@ -65,6 +68,7 @@ export default function SimpleCard() {
       <CardContent>
         <h1>Incidence Report (IR number here)</h1>
         <table>
+          {/* creates a table for info on incident */}
           <tbody>
             <tr>
               <th>Time of Incident:</th>
@@ -81,6 +85,7 @@ export default function SimpleCard() {
           </tbody>
         </table>
         <table>
+          {/* creates a table for info on people in incident */}
           <thead>
             <h2>People Involved</h2>
           </thead>
@@ -96,6 +101,7 @@ export default function SimpleCard() {
           </tbody>
         </table>
         <table>
+          {/* creates a table for info on vehicles in incident */}
           <thead>
             <h2>Vehicles Involved</h2>
           </thead>
@@ -119,6 +125,7 @@ export default function SimpleCard() {
           </tbody>
         </table>
         <br/>
+        {/* dropdown for narrative */}
         <Accordion className={accordionClasses.bottom}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
@@ -126,7 +133,7 @@ export default function SimpleCard() {
             id="panel1a-header"
           >
             <Typography className={accordionClasses.heading}>
-              Details
+              Narrative . . .
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -150,6 +157,7 @@ export default function SimpleCard() {
         </Accordion>
         <br/>
         <table>
+          {/* table for officer that made report */}
           <tbody>
             <tr>
               <th>Reporting Officer:</th>

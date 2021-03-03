@@ -1,3 +1,4 @@
+// imports from Material-UI
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -12,6 +13,7 @@ import AccordionDetails from "@material-ui/core/AccordionDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { fromString } from "uuidv4";
 
+// makes general styles
 const useStyles = makeStyles({
   root: {
     background: "#ffb938",
@@ -34,6 +36,7 @@ const useStyles = makeStyles({
     textAlign: "right"
   }
 });
+// styles for dropdown
 const accordionStyles = makeStyles((theme) => ({
   bottom: {
     background: "#8f774a"
@@ -56,15 +59,16 @@ const accordionStyles = makeStyles((theme) => ({
 }));
 
 export default function SimpleCard() {
+  // uses general styles
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
-
+  // uses styles for dropdown
   const accordionClasses = accordionStyles();
 
   return (
     <Card className={classes.root}>
       <CardContent>
         <h1>Vehicle Report</h1>
+        {/* creates a section for vehicles */}
         <table>
           <tbody>
             <tr>

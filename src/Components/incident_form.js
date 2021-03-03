@@ -12,7 +12,7 @@ import { useForm } from 'react-hook-form';
 import firebase from 'firebase';
 // ========================= Zack's Stuff =========================
 
-
+// general styling
 const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {
@@ -46,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'nowrap',
   },
 }));
+// functions to add fields with buttons
 function addperson() {
   let personHTML = `<br /><div class="MuiFormControl-root MuiTextField-root"><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" id="standard-required" name="LastName" placeholder="Doe" required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root MuiTextField-root"><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" id="standard-required" name="FirstName" placeholder="John" required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root MuiTextField-root"><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" id="standard-required" name="MiddleName" placeholder="A." required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root makeStyles-formControl-15"><select><option inputtype="Radio" name="RP" value="RP">RP</option><option inputtype="Radio" name="W" value="W">W</option><option inputtype="Radio" name="V" value="V">V</option><option inputtype="Radio" name="IL" value="IL">IL</option><option inputtype="Radio" name="S" value="S">S</option></select></div>`;
   let peopleDiv = document.getElementById('people');
@@ -78,17 +79,27 @@ export default function FormPropsTextFields() {
   return (
     <form className={classes.root} onSubmit={handleSubmit(onSubmit)} autoComplete="off">
       <h1>Report an Incident</h1>
+      {/* creates a section for information on incident */}
       <div>
+        {/* IR number for incident, auto-generated, read-only */}
         <TextField inputRef={register} name="id" id="standard-number" value={IR_Number()} label="IR Number (Readonly)" type="string" InputLabelProps={{ shrink: true, }} />
+        {/* Time of incident */}
         <TextField inputRef={register} id="datetime-local" name="TimeofIncident" label="Time of Incident" type="datetime-local" defaultValue="YYYY-MM-DDT" className={classes.textField} InputLabelProps={{ shrink: true, }} />
+        {/* Type of Incident */}
         <TextField inputRef={register} required id="standard-required" name="IncidentType" label="Incident Type" defaultValue="" />
+        {/* Location of Incident */}
         <TextField inputRef={register} required id="standard-required" name="Location" label="Location" defaultValue="" />
       </div>
       <h2>People Involved</h2>
+      {/* creates a section for info on people involved */}
       <div id="people">
+        {/* creates a field for last name */}
         <TextField inputRef={register} required id="standard-required" label="Last Name" name="LastName" placeholder="Doe" />
+        {/* creates a field for first name */}
         <TextField inputRef={register} required id="standard-required" label="First Name" name="FirstName" placeholder="John" />
+        {/* creates a field for middle name or initial */}
         <TextField inputRef={register} required id="standard-required" label="Middle Name or Initial" name="MiddleName" placeholder="A." />
+        {/* creates a dropdown list for relevance to incident */}
         <FormControl className={classes.formControl}>
           <InputLabel name="relevance" id="demo-simple-select-label"></InputLabel>
           <select>
@@ -101,15 +112,21 @@ export default function FormPropsTextFields() {
         </FormControl>
       </div>
       <div>
+        {/* creates a button to add a new person to incident */}
         <Button onClick={addperson} variant="contained" color="primary" className={classes.button}>
           New Person
     </Button>
       </div>
       <h2>Vehicle Involved</h2>
+      {/* creates a section for info on vehicles involved */}
       <div id="vehicle">
+        {/* Vin number */}
         <TextField inputRef={register} required id="standard-required" label="Vin Number" name="VinNumber" placeholder="1HGBH41JXMN109186" pattern='[0-9]^[A-Z]{1,17}$' />
+        {/* Make of car */}
         <TextField inputRef={register} required id="standard-required" label="Make" name="Make" placeholder="Ford" />
+        {/* Model of car */}
         <TextField inputRef={register} required id="standard-required" label="Model" name="Model" placeholder="Crown Victoria" />
+        {/* Year of car */}
         <FormControl className={classes.formControl}>
           <InputLabel name="Year" id="demo-simple-select-label"></InputLabel>
           <h10>Year</h10>
@@ -117,11 +134,13 @@ export default function FormPropsTextFields() {
         </FormControl>
       </div>
       <div>
+        {/* button to add a new vehicle */}
         <Button onClick={addvehicle} variant="contained" color="primary" className={classes.button}>
           New Vehicle
     </Button>
       </div>
       <h2>Narrative</h2>
+      {/* section for narrative */}
       <div>
         <TextareaAutosize
           ref={register}
@@ -144,6 +163,7 @@ export default function FormPropsTextFields() {
         />
       </div>
       <h2>Signature</h2>
+      {/* section for officer to sign off on report */}
       <div>
         <TextField inputRef={register} required name="Reporting Officer" id="standard-required" label="Reporting Officer" defaultValue="" />
         <TextField
