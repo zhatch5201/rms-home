@@ -37,7 +37,7 @@ const cardStyles = makeStyles({
       margin: '-19px 0px 0px 0px'
    },
    td: {
-      color: '#8c6d32',
+      color: '#704019',
       textAlign: 'right'
    }
 });
@@ -58,7 +58,7 @@ const accordionStyles = makeStyles((theme) => ({
       textAlign: 'left'
    },
    td: {
-      color: 'white',
+      color: '#ffde9c',
       textAlign: 'right'
    }
 }));
@@ -171,10 +171,7 @@ export default function PersonCard() {
                   </table>
                </AccordionDetails>
             </Accordion>
-         </CardContent>
-         <CardActions>
-            <Button size="small">Learn More</Button>
-         </CardActions>
+         </CardContent> 
       </Card>
    );
    // Card content and integration
