@@ -23,7 +23,6 @@ function App() {
 
   return (
     <>
-    <Index />
       <Router>
         <NewNav />
         <Switch>
