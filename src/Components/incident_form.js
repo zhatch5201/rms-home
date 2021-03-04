@@ -37,22 +37,23 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
   button: {
-    width: 250,
-    margin: 10,
-    marginLeft: 1090,
-    border: 2,
-    fontSize: 12,
-    borderRadius: 10,
-    flexWrap: 'nowrap',
+    padding: 10,
+    //   width: 250,
+    //   margin: 10,
+    marginLeft: 10,
+    //   border: 2,
+    //   fontSize: 12,
+    //   borderRadius: 10,
+    //   flexWrap: 'nowrap',
   },
 }));
 function addperson() {
-  let personHTML = `<br /><div class="MuiFormControl-root MuiTextField-root"><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" id="standard-required" name="LastName" placeholder="Doe" required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root MuiTextField-root"><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" id="standard-required" name="FirstName" placeholder="John" required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root MuiTextField-root"><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" id="standard-required" name="MiddleName" placeholder="A." required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root makeStyles-formControl-15"><select><option inputtype="Radio" name="RP" value="RP">RP</option><option inputtype="Radio" name="W" value="W">W</option><option inputtype="Radio" name="V" value="V">V</option><option inputtype="Radio" name="IL" value="IL">IL</option><option inputtype="Radio" name="S" value="S">S</option></select></div>`;
+  let personHTML = `<br /><div class="MuiFormControl-root MuiTextField-root"><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" name="LastName" placeholder="Doe" required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root MuiTextField-root"><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" name="FirstName" placeholder="John" required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root MuiTextField-root"><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" name="MiddleName" placeholder="A." required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root makeStyles-formControl-15"><select><option inputtype="Radio" name="RP" value="RP">RP</option><option inputtype="Radio" name="W" value="W">W</option><option inputtype="Radio" name="V" value="V">V</option><option inputtype="Radio" name="IL" value="IL">IL</option><option inputtype="Radio" name="S" value="S">S</option></select></div>`;
   let peopleDiv = document.getElementById('people');
   return peopleDiv.insertAdjacentHTML("beforeend", personHTML);
 }
 function addvehicle() {
-  let vehicleHTML = `<br /><div class="MuiFormControl-root MuiTextField-root"><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" id="standard-required" name="VinNumber" placeholder="1HGBH41JXMN109186" required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root MuiTextField-root"><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" id="standard-required" name="Make" placeholder="Ford" required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root MuiTextField-root"><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" id="standard-required" name="Model" placeholder="Crown Victoria" required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root makeStyles-formControl-15"><input type="number" pattern="[0-9][0-9][0-9][0-9]"></div>`;
+  let vehicleHTML = `<br /><div class="MuiFormControl-root MuiTextField-root"><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" name="VinNumber" placeholder="1HGBH41JXMN109186" required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root MuiTextField-root"><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" name="Make" placeholder="Ford" required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root MuiTextField-root"><div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"><input aria-invalid="false" name="Model" placeholder="Crown Victoria" required="" type="text" class="MuiInputBase-input MuiInput-input" value=""></div></div><div class="MuiFormControl-root makeStyles-formControl-15"><input type="number" pattern="[0-9][0-9][0-9][0-9]"></div>`;
   let vehicleDiv = document.getElementById('vehicle');
   return vehicleDiv.insertAdjacentHTML("beforeend", vehicleHTML);
 }
@@ -71,7 +72,9 @@ export default function FormPropsTextFields() {
   const onSubmit = (data) => {
     submittedForm = data;
     console.log(`The form submitted was: `, submittedForm);
-    firebase.firestore().collection('Incidents').doc(submittedForm.uuid).set(submittedForm);
+    firebase.firestore().collection('Incidents').doc(submittedForm.id).set(submittedForm);
+    alert(`Submitted!`);
+    window.location.pathname = window.location.pathname;
   };
   // ========================= Zack's Stuff =========================
 
@@ -79,16 +82,16 @@ export default function FormPropsTextFields() {
     <form className={classes.root} onSubmit={handleSubmit(onSubmit)} autoComplete="off">
       <h1>Report an Incident</h1>
       <div>
-        <TextField inputRef={register} name="id" id="standard-number" value={IR_Number()} label="IR Number (Readonly)" type="string" InputLabelProps={{ shrink: true, }} />
-        <TextField inputRef={register} id="datetime-local" name="TimeofIncident" label="Time of Incident" type="datetime-local" defaultValue="YYYY-MM-DDT" className={classes.textField} InputLabelProps={{ shrink: true, }} />
-        <TextField inputRef={register} required id="standard-required" name="IncidentType" label="Incident Type" defaultValue="" />
-        <TextField inputRef={register} required id="standard-required" name="Location" label="Location" defaultValue="" />
+        <TextField inputRef={register} name="id" value={IR_Number()} label="IR Number (Readonly)" type="string" InputLabelProps={{ shrink: true, }} />
+        <TextField inputRef={register} name="time_of_incident" label="Time of Incident" type="datetime-local" defaultValue="YYYY-MM-DDT" className={classes.textField} InputLabelProps={{ shrink: true, }} />
+        <TextField inputRef={register} required name="incident_type" label="Incident Type" defaultValue="" />
+        <TextField inputRef={register} required name="Location" label="Location" defaultValue="" />
       </div>
-      <h2>People Involved</h2>
+      <h2>People Involved<Button onClick={addperson} variant="contained" color="primary" className={classes.button}>New Person</Button></h2>
       <div id="people">
-        <TextField inputRef={register} required id="standard-required" label="Last Name" name="LastName" placeholder="Doe" />
-        <TextField inputRef={register} required id="standard-required" label="First Name" name="FirstName" placeholder="John" />
-        <TextField inputRef={register} required id="standard-required" label="Middle Name or Initial" name="MiddleName" placeholder="A." />
+        <TextField inputRef={register} label="Last Name" name="LastName" placeholder="Doe" />
+        <TextField inputRef={register} label="First Name" name="FirstName" placeholder="John" />
+        <TextField inputRef={register} label="Middle Name or Initial" name="MiddleName" placeholder="A." />
         <FormControl className={classes.formControl}>
           <InputLabel name="relevance" id="demo-simple-select-label"></InputLabel>
           <select>
@@ -100,26 +103,15 @@ export default function FormPropsTextFields() {
           </select>
         </FormControl>
       </div>
-      <div>
-        <Button onClick={addperson} variant="contained" color="primary" className={classes.button}>
-          New Person
-    </Button>
-      </div>
-      <h2>Vehicle Involved</h2>
+      <h2>Vehicle Involved<Button onClick={addvehicle} variant="contained" color="primary" className={classes.button}>New Vehicle</Button></h2>
       <div id="vehicle">
-        <TextField inputRef={register} required id="standard-required" label="Vin Number" name="VinNumber" placeholder="1HGBH41JXMN109186" pattern='[0-9]^[A-Z]{1,17}$' />
-        <TextField inputRef={register} required id="standard-required" label="Make" name="Make" placeholder="Ford" />
-        <TextField inputRef={register} required id="standard-required" label="Model" name="Model" placeholder="Crown Victoria" />
+        <TextField inputRef={register} label="Vin Number" name="VinNumber" placeholder="1HGBH41JXMN109186" pattern='[0-9]^[A-Z]{1,17}$' />
+        <TextField inputRef={register} label="Make" name="Make" placeholder="Ford" />
+        <TextField inputRef={register} label="Model" name="Model" placeholder="Crown Victoria" />
         <FormControl className={classes.formControl}>
-          <InputLabel name="Year" id="demo-simple-select-label"></InputLabel>
-          <h10>Year</h10>
-          <input type="number" pattern="[0-9]{4}" />
+          Year
+          <input type="number" ref={register} name="vehicle_year" pattern="[0-9]{4}" />
         </FormControl>
-      </div>
-      <div>
-        <Button onClick={addvehicle} variant="contained" color="primary" className={classes.button}>
-          New Vehicle
-    </Button>
       </div>
       <h2>Narrative</h2>
       <div>
@@ -131,11 +123,11 @@ export default function FormPropsTextFields() {
           name="narrative"
           style={{
             margin: 8,
-            width: 1000
+            width: '25vw',
+            fontSize: '1.8em',
+            height: 150
           }}
           placeholder=""
-          helperText=""
-          fullWidth
           margin="normal"
           InputLabelProps={{
             shrink: true,
@@ -145,10 +137,9 @@ export default function FormPropsTextFields() {
       </div>
       <h2>Signature</h2>
       <div>
-        <TextField inputRef={register} required name="Reporting Officer" id="standard-required" label="Reporting Officer" defaultValue="" />
+        <TextField inputRef={register} required name="Reporting Officer" label="Reporting Officer" defaultValue="" />
         <TextField
           inputRef={register}
-          id="standard-number"
           name="BadgeNumber"
           label="Badge Number"
           type="number"
@@ -159,10 +150,8 @@ export default function FormPropsTextFields() {
         <TextField
           inputRef={register}
           name="TimeofFiledReport"
-          id="datetime-local"
           label="Time of Filed Report"
           type="datetime-local"
-          defaultValue="YYYY-MM-DDT"
           className={classes.textField}
           InputLabelProps={{
             shrink: true,
@@ -170,6 +159,6 @@ export default function FormPropsTextFields() {
         />
       </div>
       <input type="submit" />
-    </form>
+    </form >
   );
 }

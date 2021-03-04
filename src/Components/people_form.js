@@ -6,20 +6,13 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
-
-
-import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import Favorite from '@material-ui/icons/Favorite';
-import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 // Zack
 import { useForm, Controller } from 'react-hook-form';
-import uuid from 'uuidv4';
-import firebase from 'firebase';
-import { Hidden } from '@material-ui/core';
+// import uuid from 'uuidv4';
+// import firebase from 'firebase';
+// import { Hidden } from '@material-ui/core';
 // Zack
 
 const useStyles = makeStyles((theme) => ({
@@ -108,7 +101,7 @@ export default function FormPropsTextFields() {
     const handleChange = (event) => {
         setState({ ...state, [event.target.name]: event.target.checked });
     };
-    
+
     return (
         <>
             <form className={classes.root} onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
@@ -226,7 +219,7 @@ export default function FormPropsTextFields() {
                     variant="filled"
                 />
                 {/* need a way to add mugshots */}
-                <input type="file"  accept="image/*" name="mugshot" id="mugshot" />
+                <input type="file" accept="image/*" name="mugshot" id="mugshot" />
                 {/* ^^ working on uploading and displaying a mugshot */}
                 <br />
                 <FormControlLabel

@@ -11,17 +11,36 @@ export default function PeopleGrid() {
    const [loading, setLoading] = useState(true);
    const ref = firebase.firestore().collection("People");
 
-   function getPeople() {
+   async function getPeople() {
       setLoading(true);
-      ref.onSnapshot((querySnapshot) => {
+      if (window.location.pathname === '/people/grid') {
+         ref.onSnapshot((querySnapshot) => {
+            const items = [];
+            querySnapshot.forEach((person) => {
+               items.push(person.data());
+            });
+            setPeople(items);
+            setLoading(false);
+            // console.log(people);
+         });
+      } else {
+         let snapshot;
          const items = [];
-         querySnapshot.forEach((person) => {
-            items.push(person.data());
+         let pathname = window.location.pathname;
+         var query = pathname.substring(13, pathname.length).split('%20');
+         console.log(query);
+         const peopleRef = firebase.firestore().collection('People');
+         if (query.length === 1) {
+            snapshot = await peopleRef.where('first_name', '==', query[0]).get();
+         } else if (query.length === 2) {
+            snapshot = await peopleRef.where('first_name', '==', query[0]).where('last_name', '==', query[1]).get();
+         }
+         snapshot.forEach((doc) => {
+            items.push(doc.data());
          });
          setPeople(items);
          setLoading(false);
-         // console.log(people);
-      });
+      }
    }
 
    useEffect(() => {
@@ -40,12 +59,19 @@ export default function PeopleGrid() {
    const columns = [
       {
          field: 'fullName', headerName: 'Full name', sortable: false, width: 160, renderCell: (person_fields) => {
+            // console.log(person_fields.row.demographic.date_of_birth);
             return (
                <Link to={`/people/query_people/${person_fields.getValue('id')}`}>{person_fields.getValue('first_name')} {person_fields.getValue('last_name')}</Link>
             );
          }
       },
-      { field: 'address', headerName: 'Address', width: 150 },
+      { field: 'address', headerName: 'Address', width: 200 },
+      {
+         field: 'dob', headerName: 'Date of Birth', width: 150, renderCell: (person_fields) => {
+            // console.log(`Person Fields`, person_fields);
+            return (<>{person_fields.row.demographic.date_of_birth}</>);
+         }
+      }
 
    ];
 
