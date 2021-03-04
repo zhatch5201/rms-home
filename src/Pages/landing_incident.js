@@ -8,18 +8,21 @@ const styles = makeStyles({
    },
    link: {
       textDecoration: 'none',
-
+   },
+   h1:{
+      textAlign: 'center',
    },
    button: {
       width: '50vw',
       height: '25vh',
       margin: '5vh 25vw',
-      background: '#b26a00',
+      background: 'orange',
+      color: 'white',
       fontSize: '2em',
       borderRadius: '20px',
       '&:hover': {
-         backgroundColor: '#ff9800',
-         color: '#ab003c'
+         backgroundColor: '#e68a00',
+         color: 'grey'
       }
    }
 });
