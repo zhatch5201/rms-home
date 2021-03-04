@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
       width: '25ch',
     },
+    backgroundColor: '#ff9900',
   },
   container: {
     display: 'flex',
@@ -40,6 +41,8 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
   button: {
+    backgroundColor: '#000',
+    color: '#FFF',
     width: 250,
     margin: 10,
     marginLeft: 30,

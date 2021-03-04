@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
       width: '25ch',
     },
+    backgroundColor: '#ff9900',
   },
   container: {
     display: 'flex',
@@ -31,12 +32,14 @@ const useStyles = makeStyles((theme) => ({
   },
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120,
+    minWidth: 160,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
   button: {
+    backgroundColor: '#000',
+    color: '#FFF',
     padding: 10,
     //   width: 250,
     //   margin: 10,
