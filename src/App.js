@@ -35,7 +35,7 @@ function App() {
           <Route path='/incidents' exact component={LandingPageIncident} />
           <Route path='/incidents/grid' exact component={IncidentsList} />
           <Route path='/incidents/query_incident' component={SearchIncident} />
-          <Route path='/incidents/query_incident/:id' component={() => { return (<h1>Some Card with incident content</h1>); }} />
+          <Route path='/incidents/query_incident/:id' exact component={() => { return (<h1>Some Card with incident content</h1>); }} />
           <Route path='/incidents/add_incident' component={IncidenceForm} />
           {/* Vehicles */}
           <Route path='/vehicles' exact component={LandingPageVehicle} />
