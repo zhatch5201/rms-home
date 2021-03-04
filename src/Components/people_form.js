@@ -51,10 +51,10 @@ export default function FormPropsTextFields() {
     let submittedForm;
     var personObject = {
         // id: uuid(),
-        report_code: '',
-        last_name: '',
-        first_name: '',
-        middle_name: '',
+        // report_code: ,
+        last_name: submittedForm.last_name,
+        first_name: submittedForm.first_name,
+        middle_name: submittedForm.middle_name,
         ssn: '',
         driver_license: {
             number: '',
