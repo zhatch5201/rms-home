@@ -83,7 +83,7 @@ export default function FormPropsTextFields() {
           first_name: submittedForm.FirstName,
           middle_name: submittedForm.MiddleName,
           relevance: submittedForm.relevance
-        }
+        },
       }],
       vehicles_involved: [{
           vehicle: {
