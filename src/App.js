@@ -12,6 +12,7 @@ import SearchPeople from './Components/search_people';
 import LandingPageIncident from './Pages/landing_incident';
 import LandingPagePeople from './Pages/landing_people';
 import LandingPageVehicle from './Pages/landing_vehicle';
+
 // Search Pages
 import IncidentSearch from './Components/incident_search';
 // Router
