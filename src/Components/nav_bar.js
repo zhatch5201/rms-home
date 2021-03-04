@@ -9,13 +9,19 @@ import { Link } from 'react-router-dom';
 import Logo from './logo.png';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
+import { CenterFocusStrong } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  app: {
+    backgroundColor: '#FFFFFF',
+    
+  },
+  
   nav: {
-    width: '500px',
+    width: '450px',
     marginRight: `calc(1em + ${theme.spacing(20)}px)`,
     borderRadius: theme.shape.borderRadius,
   },
@@ -32,9 +38,11 @@ const useStyles = makeStyles((theme) => ({
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
+    background: '#ff9900',
+    borderRadius: '15px',
     '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
+      backgroundColor: '#ff9800',
+      color: '#ab003c'
     },
     marginLeft: 0,
     width: '100%',
@@ -78,13 +86,29 @@ const buttonStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
+  buu: {
+    background: '#ffffff00',
+    marginRight: 150,
+    width: 320,
+  },
   button: {
-    background: 'rgba(100, 100, 100, 0.45)'
+    fontSize: 15,
+    background: '#ff9900',
+    borderRadius: '0px',
+    '&:hover': {
+      backgroundColor: '#ff9800',
+      color: '#ab003c'
+    }
   },
   link: {
-    // background: 'white',
-    color: 'white',
-    textDecoration: 'none'
+    textDecoration: 'none',
+    color: 'black',
+    background: '#ff9900',
+    borderRadius: '0px',
+    '&:hover': {
+      backgroundColor: '#ff9800',
+      color: '#ab003c'
+    }
   }
 }));
 export default function SearchAppBar() {
@@ -93,8 +117,8 @@ export default function SearchAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
+      <AppBar className={classes.app} position="static">
+        <Toolbar >
 
 
           <div>
@@ -105,7 +129,7 @@ export default function SearchAppBar() {
           </Typography>
           {/* <Paper className={classes.root} > */}
           <div className={button_classes.root}>
-            <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
+            <ButtonGroup className={button_classes.buu} variant="contained" color="#000" aria-label="contained primary button group">
               <Button className={button_classes.button}><Link className={button_classes.link} to='/incidents'>Incidents</Link></Button>
               <Button className={button_classes.button}><Link className={button_classes.link} to='/people'>People</Link></Button>
               <Button className={button_classes.button}><Link className={button_classes.link} to='/vehicles'>Vehicles</Link></Button>

@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 
 const styles = makeStyles({
    root: {
-      width: '90vw',
-      height: '1vh'
+      width: '99vw',
+      height: '120vh',
+      background: '#ff9900',
    },
    link: {
       textDecoration: 'none',
@@ -15,7 +16,7 @@ const styles = makeStyles({
       width: '50vw',
       height: '25vh',
       margin: '5vh 25vw',
-      background: '#b26a00',
+      background: '#FFFFFF',
       fontSize: '2em',
       borderRadius: '20px',
       '&:hover': {
