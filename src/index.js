@@ -8,32 +8,139 @@ import { UserProvider, authWithGoogle, logout } from './Components/UserContext';
 
 export function homepage() {
   return (<>
-      <header>
-          <div class="overlay"></div>
-          
-              <div class="container h-100">
-                  <div class="d-flex h-100 text-center align-items-center">
-                      <div class="w-100 text-white">
-                          <h1 class="display-3">Video Header</h1>
-                          <p class="lead mb-0">With HTML5 Video and Bootstrap 4</p>
-                      </div>
-                  </div>
-              </div>
-      </header>
+<html lang="en">
 
-      <section class="my-5">
-              <div class="container">
-                  <div class="row">
-                      <div class="col-md-8 mx-auto">
-                          <p>The HTML5 video element uses an mp4 video as a source. Change the source video to add in your own background! The header text is vertically centered using flex utilities that are build into Bootstrap 4.</p>
-                          <p>The overlay color can be changed by changing the <code>background-color</code> of the <code>.overlay</code> class in the CSS.</p>
-                          <p>Set the mobile fallback image in the CSS by changing the background image of the header element within the media query at the bottom of the CSS snippet.</p>
-                          <p class="mb-0">
-                              Created by <a href="https://startbootstrap.com">Start Bootstrap</a>
-                          </p>
-                      </div>
-                  </div>
-              </div>
-      </section>
+{/* <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>West-MEC RMS Homepage</title>
+    <link href="index.css" rel="styleSheet" />
+
+    <!-- Bootstrap Links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+</head> */}
+
+{/* <!-- Masthead --> */}
+<div class="text-center bg-image hero masthead" style="background-image: url('Components/masthead1.jpg');">
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="text-white">
+            <hgroup>
+                <h1><img id="logo"
+                        src="https://is4-ssl.mzstatic.com/image/thumb/Purple123/v4/fc/46/95/fc4695a8-7d46-01a6-cd90-fbeecd518750/source/512x512bb.jpg" />
+                    West-MEC RMS</h1>
+                <h3>A Record Management System for the law and public safety students at West-MEC
+                    Central Campus</h3>
+            </hgroup>
+            <a class="btn-1 btn btn-hero btn-lg btn-primary btn-xl text-uppercase js-scroll-trigger" href="#AboutUs"
+                role="button">Read More</a>
+        </div>
+    </div>
+</div>
+
+<body class="mx-auto gradient">
+
+    {/* <!-- About Us Card --> */}
+    <div id="AboutUs" class="card m-5"
+        style="color: white; background-color: rgb(255, 184, 51); border: double rgb(255, 136, 0); border-radius: 25px;">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <img src="Components/glendalepolice.jpg" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h3 class="card-title">About Us</h3>
+                    <p class="card-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                        culpa qui officia deserunt mollit anim id est laborum.Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum
+                        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                        culpa qui officia deserunt mollit anim id est laborum. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    {/* <!-- Biography Cards --> */}
+    <h1 style="background-color: rgb(255, 184, 51); color: white;" class="text-center p-4">Meet the Developers:</h1>
+    <div class="p-4 mx-auto card-group">
+        <div style="background-color: rgb(255, 184, 51); color: white;" class="card group">
+            <div class="card-body-group">
+                <h2 class="card-title-group">Zackary Hatch</h2>
+                <p class="card-text-group">A very smart student and programmer. Very cool person his hair is nice.</p>
+                <br>
+                <p class="card-text-group">Worked on mostly backend, but helped everywhere. Introduced
+                    his team members to a brand new framework and database we have never used before.
+                </p>
+            </div>
+        </div>
+        <div style="background-color: rgb(255, 166, 0); color: white;" class="card group">
+            <div class="card-body-group">
+                <h2 class="card-title-group">Ashlynn Hickman</h2>
+                <p class="card-text-group">An artist and designer. Bopped to music while making things look pretty.</p>
+                <br>
+                <p class="card-text-group">Worked on mostly front-end. Designed the look of the website
+                    inside and out, from beginning to end.
+                </p>
+            </div>
+        </div>
+        <div style="background-color: rgb(255, 184, 51); color: white;" class="card group">
+            <div class="card-body-group">
+                <h2 class="card-title-group">Taylor Hamilton</h2>
+                <p class="card-text-group">Another smart programmer. Also pretty cool dude. </p>
+                <br>
+                <p class="card-text-group">Worked on backend forms and programming.</p>
+            </div>
+        </div>
+        <div style="background-color: rgb(255, 166, 0); color: white;" class="card group">
+            <div class="card-body-group">
+                <h2 class="card-title-group">Hunter Funk</h2>
+                <p class="card-text-group">Totally rad programmer and gamer. </p>
+                <br>
+                <p class="card-text">Worked on backend forms.</p>
+            </div>
+        </div>
+    </div>
+    {/* <!-- Footer --> */}
+    <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Web design</a></li>
+                            <li><a href="#">Development</a></li>
+                            <li><a href="#">Hosting</a></li>
+                        </ul>
+                        <br>
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>West-MEC RMS</h3>
+                    </div>   
+                
+            </div>
+        </footer>
+    </div>
+</body>
+<a href="#" id="toTopBtn" class="cd-top text-replace js-cd-top cd-top--is-visible cd-top--fade-out" data-abc="true"></a>
+</html>
       </>);
   }
