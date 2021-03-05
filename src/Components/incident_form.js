@@ -73,6 +73,38 @@ export default function FormPropsTextFields() {
   };
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
+    var incident = {
+      general: {
+        ir_number: submittedForm.id,
+        occ_date: submittedForm.time_of_incident,
+        occ_type: submittedForm.incident_type,
+        location: submittedForm.Location,
+      },
+      people: [{
+        person: {
+          last_name: submittedForm.LastName,
+          first_name: submittedForm.FirstName,
+          middle_name: submittedForm.MiddleName,
+          relevance: submittedForm.relevance
+        },
+      }],
+      vehicles_involved: [{
+          vehicle: {
+            vin: submittedForm.VinNumber,
+            make: submittedForm.Make,
+            model: submittedForm.Model,
+            year: submittedForm.vehicle_year
+          }
+      }],
+      narrative: submittedForm.narrative,
+      officer: {
+        officer_name: submittedForm.Reporting_Officer,
+        officer_num: submittedForm.BadgeNumber
+      },
+      paperwork: {
+        submit_time: 'submittedForm.TimeofFiledReport'
+      }
+    }
     submittedForm = data;
     console.log(`The form submitted was: `, submittedForm);
     firebase.firestore().collection('Incidents').doc(submittedForm.id).set(submittedForm);
@@ -140,7 +172,7 @@ export default function FormPropsTextFields() {
       </div>
       <h2>Signature</h2>
       <div>
-        <TextField inputRef={register} required name="Reporting Officer" label="Reporting Officer" defaultValue="" />
+        <TextField inputRef={register} required name="Reporting_Officer" label="Reporting Officer" defaultValue="" />
         <TextField
           inputRef={register}
           name="BadgeNumber"
