@@ -22,8 +22,9 @@ const styles = makeStyles({
       fontSize: '2em',
       borderRadius: '20px',
       '&:hover': {
-         backgroundColor: '#ff9800',
-         color: '#ab003c'
+         backgroundColor: '#d17d00',
+         color: 'grey',
+         boxShadow: '8px 12px 31px -10px grey'
       }
    }
 });
