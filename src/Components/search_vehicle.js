@@ -58,9 +58,9 @@ export default function PrimarySearchAppBar() {
     <FormControl className={classes.formControl}>
           <InputLabel name="Search Field" id="demo-simple-select-label"></InputLabel>
           <select>
-              <option type='button' value='SSN'>SSN</option>
-              <option type='button' value='Address'>Address</option>
-              <option type='button' value='Date of Birth'>Date of Birth</option>
+              <option type='button' value='Make'>Make</option>
+              <option type='button' value='Model'>Model</option>
+              <option type='button' value='Year'>Year</option>
           </select>
         </FormControl>
     </div>
