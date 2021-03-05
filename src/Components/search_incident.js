@@ -43,17 +43,37 @@ export default function PrimarySearchAppBar() {
 
   const { register, handleSubmit } = useForm();
   const onSubmit = async (data) => {
-    console.log(window.location.pathname);
-    var person = firebase.firestore().collection('Incidents').where('');
+    let snapshot;
+    let x = 0;
+    let query = data.query.split(' ');
+    console.log(query);
+    const peopleRef = firebase.firestore().collection('Incidents');
+    if (query.length === 1) {
+      snapshot = await peopleRef.where('incident_type', '==', query[0]).get();
+    }
+    // else if (query.length === 2) {
+    //   snapshot = await peopleRef.where('first_name', '==', query[0]).where('last_name', '==', query[1]).get();
+    // }
+    if (snapshot.empty) {
+      console.log('Nobody has that Name!');
+      alert('Nobody has that Name!');
+    } else {
+      snapshot.forEach((doc) => {
+        console.log(doc.id);
+        x++;
+        window.location.pathname = `incidents/grid/${data.query}`;
+        console.log(x);
+      });
+    };
   };
 
   return (
     <div className={classes.grow}>
       <div className={classes.search}>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <SearchIcon />
-          <InputBase placeholder="Search for Incident" classes={{ root: classes.inputRoot, input: classes.inputInput, }} inputProps={{ 'aria-label': 'search' }} />
-          {/* <br /> */}
+          <SearchIcon />&nbsp;
+
+          <InputBase inputRef={register} name="query" placeholder="Search for People" classes={{ root: classes.inputRoot, input: classes.inputInput, }} inputProps={{ 'aria-label': 'search' }} />
           <input type="submit" />
         </form>
       </div>

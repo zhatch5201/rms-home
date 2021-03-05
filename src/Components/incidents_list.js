@@ -12,17 +12,34 @@ export default function IncidentsList() {
   const [loading, setLoading] = useState(true);
   const ref = firebase.firestore().collection("Incidents");
 
-  function getIncidents() {
+  async function getIncidents() {
     setLoading(true);
-    ref.onSnapshot((querySnapshot) => {
+    if (window.location.pathname === '/people/grid') {
+      ref.onSnapshot((querySnapshot) => {
+        const items = [];
+        querySnapshot.forEach((person) => {
+          items.push(person.data());
+        });
+        setIncidents(items);
+        setLoading(false);
+        // console.log(people);
+      });
+    } else {
+      let snapshot;
       const items = [];
-      querySnapshot.forEach((person) => {
-        items.push(person.data());
+      let pathname = window.location.pathname;
+      var query = pathname.substring(15, pathname.length);
+      console.log(query);
+      const peopleRef = firebase.firestore().collection('People');
+      if (query.length === 1) {
+        snapshot = await peopleRef.where('first_name', '==', query[0]).get();
+      }
+      snapshot.forEach((doc) => {
+        items.push(doc.data());
       });
       setIncidents(items);
       setLoading(false);
-      console.log(Incidents);
-    });
+    }
   }
 
   useEffect(() => {
