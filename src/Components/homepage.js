@@ -1,31 +1,8 @@
-export function homepage() {
-    return (<>
-        <header>
-            <div class="overlay"></div>
-            
-                <div class="container h-100">
-                    <div class="d-flex h-100 text-center align-items-center">
-                        <div class="w-100 text-white">
-                            <h1 class="display-3">Video Header</h1>
-                            <p class="lead mb-0">With HTML5 Video and Bootstrap 4</p>
-                        </div>
-                    </div>
-                </div>
-        </header>
+import React from 'react';
+import masthead1 from './Images/masthead1.jpg';
+import glendalepolice from './Images/glendalepolice.jpg';
 
-        <section class="my-5">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 mx-auto">
-                            <p>The HTML5 video element uses an mp4 video as a source. Change the source video to add in your own background! The header text is vertically centered using flex utilities that are build into Bootstrap 4.</p>
-                            <p>The overlay color can be changed by changing the <code>background-color</code> of the <code>.overlay</code> class in the CSS.</p>
-                            <p>Set the mobile fallback image in the CSS by changing the background image of the header element within the media query at the bottom of the CSS snippet.</p>
-                            <p class="mb-0">
-                                Created by <a href="https://startbootstrap.com">Start Bootstrap</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-        </section>
-        </>);
-    }
+export default function homepage() {
+    console.log(1);
+    return (<div><div className="text-center bg-image hero masthead" style={{ backgroundImage: `url(${masthead1})` }}>            <div className="d-flex justify-content-center align-items-center">                <div className="text-white">                    <hgroup>                        <h1><img id="logo" alt="logo" src="https://is4-ssl.mzstatic.com/image/thumb/Purple123/v4/fc/46/95/fc4695a8-7d46-01a6-cd90-fbeecd518750/source/512x512bb.jpg" />                  West-MEC RMS</h1>                        <h3>A Record Management System for the law and public safety students at West-MEC                  Central Campus</h3>                    </hgroup>                    <a className="btn-1 btn btn-hero btn-lg btn-primary btn-xl text-uppercase js-scroll-trigger" href="#AboutUs" role="button">Read More</a>                </div>            </div>        </div>        <div id="AboutUs" className="card m-5" style={{ color: 'white', backgroundColor: 'rgb(255, 184, 51)', border: 'double rgb(255, 136, 0)', borderRadius: '25px' }}>            <div className="row align-items-center">                <div className="col-md-4">                    <img src={glendalepolice} alt="..." />                </div>                <div className="col-md-8">                    <div className="card-body">                        <h3 className="card-title">About Us</h3>                        <p className="card-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum                        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in                        culpa qui officia deserunt mollit anim id est laborum.Duis aute irure dolor in reprehenderit in                        voluptate velit esse cillum                        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in                        culpa qui officia deserunt mollit anim id est laborum. </p>                    </div>                </div>            </div>        </div>        <h1 style={{ backgroundColor: 'rgb(255, 184, 51)', color: 'white' }} className="text-center p-4">Meet the Developers:</h1>        <div className="p-4 mx-auto card-group">            <div style={{ backgroundColor: 'rgb(255, 184, 51)', color: 'white' }} className="card group">                <div className="card-body-group">                    <h2 className="card-title-group">Zackary Hatch</h2>                    <p className="card-text-group">A very smart student and programmer. Very cool person his hair is nice.</p>                    <br />                    <p className="card-text-group">Worked on mostly backend, but helped everywhere. Introduced his team members to a brand new framework and database we have never used before.</p>                </div>            </div>            <div style={{ backgroundColor: 'rgb(255, 166, 0)', color: 'white' }} className="card group">                <div className="card-body-group">                    <h2 className="card-title-group">Ashlynn Hickman</h2>                    <p className="card-text-group">An artist and designer. Bopped to music while making things look pretty.</p>                    <br />                    <p className="card-text-group">Worked on mostly front-end. Designed the look of the website inside and out, from beginning to end.</p>                </div>            </div>            <div style={{ backgroundColor: 'rgb(255, 184, 51)', color: 'white' }} className="card group">                <div className="card-body-group">                    <h2 className="card-title-group">Taylor Hamilton</h2>                    <p className="card-text-group">Another smart programmer. Also pretty cool dude. </p>                    <br />                    <p className="card-text-group">Worked on backend forms and programming.</p>                </div>            </div>            <div style={{ backgroundColor: 'rgb(255, 166, 0)', color: 'white' }} className="card group">                <div className="card-body-group">                    <h2 className="card-title-group">Hunter Funk</h2>                    <p className="card-text-group">Totally rad programmer and gamer. </p>                    <br />                    <p className="card-text">Worked on backend forms.</p>                </div>            </div>        </div>        <div className="footer-dark">            <footer>                <div className="container">                    <div className="row">                        <div className="col-sm-6 col-md-3 item">                            <h3>Services</h3>                            <ul>                                <li><a href="/">Web design</a></li>                                <li><a href="/">Development</a></li>                                <li><a href="/">Hosting</a></li>                            </ul>                            <br />                            <h3>About</h3>                            <ul>                                <li><a href="/">Company</a></li>                                <li><a href="/">Team</a></li>                                <li><a href="/">Careers</a></li>                            </ul>                        </div>                        <div className="col-sm-6 col-md-3 item">                            <h3>West-MEC RMS</h3>                        </div>                    </div></div>            </footer>        </div></div >);
+}

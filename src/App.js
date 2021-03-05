@@ -12,7 +12,7 @@ import SearchPeople from './Components/search_people';
 import LandingPageIncident from './Pages/landing_incident';
 import LandingPagePeople from './Pages/landing_people';
 import LandingPageVehicle from './Pages/landing_vehicle';
-
+import Homepage from './Components/homepage';
 // Search Pages
 
 // Router
@@ -22,7 +22,7 @@ function App() {
 
   return (
     <>
-    {/* <Index /> */}
+      {/* <Index /> */}
       <Router>
         <NewNav />
         <Switch>
@@ -46,7 +46,7 @@ function App() {
           <Route path='/vehicles/query_vehicle/:id' component={VehicleForm} />
           <Route path='/vehicles/add_vehicle' component={VehicleForm} />
           {/* Home */}
-          <Route path='/' exact />
+          <Route path='/' exact component={Homepage} />
         </Switch>
       </Router>
     </>
