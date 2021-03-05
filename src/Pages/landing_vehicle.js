@@ -13,11 +13,11 @@ const styles = makeStyles({
 
    },
    button: {
-      color: '#FFF',
+      color: '#000',
       width: '50vw',
       height: '25vh',
       margin: '5vh 25vw',
-      background: '#000',
+      background: '#FFF',
       fontSize: '2em',
       borderRadius: '20px',
       '&:hover': {
