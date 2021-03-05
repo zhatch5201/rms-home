@@ -1,11 +1,13 @@
 // import PeopleGrid from '../Components/people_grid';
 import { Button, makeStyles } from '@material-ui/core';
+import { Gradient } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 
 const styles = makeStyles({
    root: {
-      width: '90vw',
-      height: '1vh'
+      width: '99vw',
+      height: '120vh',
+      background: 'linear-gradient(to right bottom, #430089, #82ffa1)',
    },
    link: {
       textDecoration: 'none',
