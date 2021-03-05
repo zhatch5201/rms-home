@@ -17,13 +17,14 @@ const styles = makeStyles({
       width: '50vw',
       height: '25vh',
       margin: '5vh 25vw',
-      background: 'orange',
+      background: '#ff9900',
       color: 'white',
       fontSize: '2em',
       borderRadius: '20px',
       '&:hover': {
-         backgroundColor: '#e68a00',
-         color: 'grey'
+         backgroundColor: '#d17d00',
+         color: 'grey',
+         boxShadow: '8px 12px 31px -10px grey'
       }
    }
 });
