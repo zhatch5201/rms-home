@@ -41,8 +41,14 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
   button: {
-    backgroundColor: '#000',
-    color: '#FFF',
+    color: '#000',
+      background: '#FFF',
+      borderRadius: '5px',
+      '&:hover': {
+         backgroundColor: 'grey',
+         color: '#FFF',
+         boxShadow: '2px 3px 5px -1px grey'
+      },
     width: 250,
     margin: 10,
     marginLeft: 30,

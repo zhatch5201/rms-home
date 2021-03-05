@@ -21,8 +21,8 @@ const styles = makeStyles({
       fontSize: '2em',
       borderRadius: '20px',
       '&:hover': {
-         backgroundColor: '#d17d00',
-         color: 'grey',
+         backgroundColor: 'grey',
+         color: '#FFF',
          boxShadow: '8px 12px 31px -10px grey'
       }
    }

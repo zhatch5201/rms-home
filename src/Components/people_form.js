@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
             margin: theme.spacing(1),
             width: '25ch',
         },
+        backgroundColor: '#ff9900',
     },
     formControl: {
         margin: theme.spacing(1),
@@ -237,14 +238,6 @@ export default function FormPropsTextFields() {
                 <input type="file" accept="image/*" name="mugshot" id="mugshot" />
                 {/* ^^ working on uploading and displaying a mugshot */}
                 <br />
-                <FormControlLabel
-                    label="Gang Affiliation"
-                    control={<Checkbox checked={state.checkedA} onChange={handleChange} name="gang" />}
-                />
-                <FormControlLabel
-                    label="Hazardous"
-                    control={<Checkbox checked={state.checkedB} onChange={handleChange} name="hazard" />}
-                />
                 <TextareaAutosize
                     rowsMin={5}
                     id="filled-full-width"
@@ -258,6 +251,15 @@ export default function FormPropsTextFields() {
                     }}
                     margin="normal"
                     variant="filled"
+                />
+                <br />
+                <FormControlLabel
+                    label="Gang Affiliation"
+                    control={<Checkbox checked={state.checkedA} onChange={handleChange} name="gang" />}
+                />
+                <FormControlLabel
+                    label="Hazardous"
+                    control={<Checkbox checked={state.checkedB} onChange={handleChange} name="hazard" />}
                 />
                 <br />
                 <input type="submit" />
