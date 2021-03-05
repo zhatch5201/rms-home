@@ -2,14 +2,27 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
+
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
 // Zack
 import { useForm } from 'react-hook-form';
 import firebase from 'firebase';
 // Zack
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    fontSize: 3,
+    position: 'relative',
+    alignItems: 'center',
+    marginTop: -40,
+  },
   grow: {
     flexGrow: 1,
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 160,
   },
   inputRoot: {
     color: 'white',
@@ -71,9 +84,19 @@ export default function PrimarySearchAppBar() {
     <div className={classes.grow}>
       <div className={classes.search}>
         <form onSubmit={handleSubmit(onSubmit)}>
+        <div className={classes.root}>
+    <FormControl className={classes.formControl}>
+          <InputLabel name="Search Field" id="demo-simple-select-label"></InputLabel>
+          <select>
+              <option type='button' value='SSN'>SSN</option>
+              <option type='button' value='Address'>Address</option>
+              <option type='button' value='Date of Birth'>Date of Birth</option>
+          </select>
+        </FormControl>
+    </div>
           <SearchIcon />&nbsp;
 
-          <InputBase inputRef={register} name="query" placeholder="Search for People" classes={{ root: classes.inputRoot, input: classes.inputInput, }} inputProps={{ 'aria-label': 'search' }} />
+          <InputBase inputRef={register} name="query" placeholder="Search for Incident" classes={{ root: classes.inputRoot, input: classes.inputInput, }} inputProps={{ 'aria-label': 'search' }} />
           <input type="submit" />
         </form>
       </div>
