@@ -11,19 +11,23 @@ const styles = makeStyles({
    },
    link: {
       textDecoration: 'none',
-
+   },
+   h1:{
+      textAlign: 'center',
    },
    button: {
       color: '#FFF',
       width: '50vw',
       height: '25vh',
       margin: '5vh 25vw',
-      background: '#000',
+      background: '#ff9900',
+      color: 'white',
       fontSize: '2em',
       borderRadius: '20px',
       '&:hover': {
-         backgroundColor: '#ff9800',
-         color: '#ab003c'
+         backgroundColor: '#d17d00',
+         color: 'grey',
+         boxShadow: '8px 12px 31px -10px grey'
       }
    }
 });
