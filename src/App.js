@@ -22,7 +22,7 @@ function App() {
 
   return (
     <>
-    <Index />
+    {/* <Index /> */}
       <Router>
         <NewNav />
         <Switch>
