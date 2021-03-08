@@ -255,15 +255,6 @@ export default function FormPropsTextFields() {
                 <input type="file" accept="image/*" name="mugshot" id="mugshot" />
                 {/* ^^ working on uploading and displaying a mugshot */}
                 <br />
-                <FormControlLabel
-                
-                    label="Gang Affiliation"
-                    control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
-                />
-                <FormControlLabel
-                    label="Hazardous"
-                    control={<Checkbox checked={state.checkedB} onChange={handleChange} name="checkedB" />}
-                />
                 <TextareaAutosize
                     rowsMin={5}
                     id="filled-full-width"

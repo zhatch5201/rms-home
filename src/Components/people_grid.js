@@ -78,7 +78,7 @@ export default function PeopleGrid() {
    const rows = people;
    // console.log(people);
    return (
-      <Fragment>
+      <Fragment id="pepe">
          <div id="pepe" style={{ height: '100vh', width: '100%'}}>
             <DataGrid rows={rows} columns={columns} pageSize={25} checkboxSelection />
          </div>
