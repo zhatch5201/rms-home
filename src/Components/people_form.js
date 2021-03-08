@@ -121,15 +121,15 @@ export default function FormPropsTextFields() {
             <form className={classes.root} onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
                 <h1>File a Person's Report</h1>
                 <h2>Demographics</h2>
-                <TextField inputRef={register} required name="last_name" placeholder="Doe" label="Last Name" />
-                <TextField inputRef={register} required name="first_name" placeholder="John" label="First Name" />
-                <TextField inputRef={register} required name="middle_name" placeholder="F" label="Middle Name or Initial" />
+                <TextField id="pepe" inputRef={register} required name="last_name" placeholder="Doe" label="Last Name" />
+                <TextField id="pepe" inputRef={register} required name="first_name" placeholder="John" label="First Name" />
+                <TextField id="pepe" inputRef={register} required name="middle_name" placeholder="F" label="Middle Name or Initial" />
                 <br />
-                <TextField inputRef={register} name="number" required label="License" placeholder="AZ#######" />
+                <TextField id="pepe" inputRef={register} name="number" required label="License" placeholder="AZ#######" />
                 <FormControl className={classes.formControl}>
                     <InputLabel id="demo-simple-select-label">State</InputLabel>
                     <Controller as={
-                        <Select>
+                        <Select id="pepe">
                             <MenuItem value='AZ'>AZ</MenuItem>
                             <MenuItem value='CA'>CA</MenuItem>
                             <MenuItem value='TX'>TX</MenuItem>
@@ -150,17 +150,18 @@ export default function FormPropsTextFields() {
                     }}
                 />
                 <TextField
+                    id="pepe"
                     inputRef={register}
                     name="ssn"
                     label="SSN"
                     type="number"
                 />
                 <br />
-                <TextField inputRef={register} name="race" required label="Race" />
+                <TextField id="pepe" inputRef={register} name="race" required label="Race" />
                 <FormControl className={classes.formControl}>
                     <InputLabel id="demo-simple-select-label">Gender</InputLabel>
                     <Controller as=
-                        {<Select>
+                        {<Select id="pepe">
                             <MenuItem value={'F'}>Female</MenuItem>
                             <MenuItem value={'M'}>Male</MenuItem>
                             <MenuItem value={'U'}>Unknown</MenuItem>
@@ -170,13 +171,13 @@ export default function FormPropsTextFields() {
                         name="sex"
                     />
                 </FormControl>
-                <TextField inputRef={register} name="height" label="Height" type="number" placeholder="###" />
-                <TextField inputRef={register} name="weight" label="Weight" type="number" placeholder="###" />
+                <TextField id="pepe"inputRef={register} name="height" label="Height" type="number" placeholder="###" />
+                <TextField id="pepe"inputRef={register} name="weight" label="Weight" type="number" placeholder="###" />
                 <br />
                 <FormControl className={classes.formControl}>
                     <InputLabel id="demo-simple-select-label">Eye Color</InputLabel>
                     <Controller as={
-                        <Select>
+                        <Select id="pepe">
                             <MenuItem value={'BRN'}>Brown</MenuItem>
                             <MenuItem value={'BLK'}>Black</MenuItem>
                             <MenuItem value={'BLU'}>Blue</MenuItem>
@@ -188,7 +189,7 @@ export default function FormPropsTextFields() {
                 <FormControl className={classes.formControl}>
                     <InputLabel id="demo-simple-select-label">Hair Color</InputLabel>
                     <Controller as=
-                        {<Select>
+                        {<Select id="pepe">
                             <MenuItem value={'BRN'}>Brown</MenuItem>
                             <MenuItem value={'BLK'}>Black</MenuItem>
                             <MenuItem value={'BLN'}>Blonde</MenuItem>
@@ -197,8 +198,8 @@ export default function FormPropsTextFields() {
                         defaultValue="BLN"
                         name="hair_color" />
                 </FormControl>
-                <TextField inputRef={register} name="date_of_birth" id="DateofBirth" label="Date of Birth" type="date" className={classes.textField} InputLabelProps={{ shrink: true, }} />
-                <TextField inputRef={register} name="age" label="Age" type="number" InputLabelProps={{ shrink: true, }} />
+                <TextField id="pepe" inputRef={register} name="date_of_birth" id="DateofBirth" label="Date of Birth" type="date" className={classes.textField} InputLabelProps={{ shrink: true, }} />
+                {/* <TextField inputRef={register} name="age" label="Age" type="number" InputLabelProps={{ shrink: true, }} /> */}
                 {/* <br /> */}
                 <h3>Features</h3>
                 <div id="featuresDiv">
@@ -218,8 +219,8 @@ export default function FormPropsTextFields() {
                 </div>
                 <button onClick={addFeatures} variant="contained" color="primary" className={classes.button}>New Feature</button>
                 <br />
-                <TextField inputRef={register} name="address" label="Home Address" placeholder="" />
-                <TextField inputRef={register} name="number" label="Main Phone Number" type="number" placeholder="###" />
+                <TextField id="pepe" inputRef={register} name="address" label="Home Address" placeholder="" />
+                <TextField id="pepe" inputRef={register} name="number" label="Main Phone Number" type="number" placeholder="###" />
                 <br />
                 <h3>Known Incidents</h3>
                 <TextareaAutosize
@@ -254,6 +255,15 @@ export default function FormPropsTextFields() {
                 <input type="file" accept="image/*" name="mugshot" id="mugshot" />
                 {/* ^^ working on uploading and displaying a mugshot */}
                 <br />
+                <FormControlLabel
+                
+                    label="Gang Affiliation"
+                    control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
+                />
+                <FormControlLabel
+                    label="Hazardous"
+                    control={<Checkbox checked={state.checkedB} onChange={handleChange} name="checkedB" />}
+                />
                 <TextareaAutosize
                     rowsMin={5}
                     id="filled-full-width"

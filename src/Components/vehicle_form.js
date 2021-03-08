@@ -93,11 +93,11 @@ export default function FormPropsTextFields() {
     <form className={classes.root} onSubmit={handleSubmit(onSubmit)} autoComplete="off">
       <h1>File a Vehicle</h1>
       <div>
-        <TextField inputRef={register} required id="standard-required" label="Liscense Plate" name="lp" placeholder="1HGBH4" pattern='[0-9]^[A-Z]{1,7}$' />
+        <TextField inputRef={register} required id="pepe" label="Liscense Plate" name="LP" placeholder="1HGBH4" pattern='[0-9]^[A-Z]{1,7}$' />
         <FormControl className={classes.formControl}>
           <InputLabel id="demo-simple-select-label">State</InputLabel>
           <Controller as={
-            <Select>
+            <Select id="pepe">
               <MenuItem value='AZ'>AZ</MenuItem>
               <MenuItem value='CA'>CA</MenuItem>
               <MenuItem value='TX'>TX</MenuItem>
@@ -106,12 +106,12 @@ export default function FormPropsTextFields() {
             defaultValue="AZ"
             name="state" />
         </FormControl>
-        <TextField inputRef={register} required id="standard-required" label="Vin Number" name="VinNumber" placeholder="1HGBH41JXMN109186" pattern='[0-9]^[A-Z]{1,17}$' />
+        <TextField inputRef={register} required id="pepe" label="Vin Number" name="VinNumber" placeholder="1HGBH41JXMN109186" pattern='[0-9]^[A-Z]{1,17}$' />
         <br />
         <FormControl className={classes.formControl}>
           <InputLabel id="demo-simple-select-label">Vehicle Color</InputLabel>
           <Controller as={
-            <Select>
+            <Select id="pepe">
               <MenuItem value={'BRN'}>Brown</MenuItem>
               <MenuItem value={'BLK'}>Black</MenuItem>
               <MenuItem value={'BLU'}>Blue</MenuItem>
@@ -119,8 +119,8 @@ export default function FormPropsTextFields() {
             control={control}
             name="vehicle_color" />
         </FormControl>
-        <TextField inputRef={register} required id="standard-required" label="Make" name="Make" placeholder="Ford" />
-        <TextField inputRef={register} required id="standard-required" label="Model" name="Model" placeholder="Crown Victoria" />
+        <TextField inputRef={register} required id="pepe" label="Make" name="Make" placeholder="Ford" />
+        <TextField inputRef={register} required id="pepe" label="Model" name="Model" placeholder="Crown Victoria" />
         <FormControl className={classes.formControl}>
           <InputLabel name="Year" id="demo-simple-select-label"></InputLabel>
           <h10>Year</h10>
@@ -176,7 +176,7 @@ export default function FormPropsTextFields() {
           name="Vehicle_Relations"
           style={{
             margin: 8,
-            width: 1000
+            width: 500
           }}
           placeholder=""
           helperText=""
