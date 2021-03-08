@@ -8,17 +8,19 @@ import InputLabel from '@material-ui/core/InputLabel';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    fontSize: 3,
+    fontSize: 15,
     position: 'relative',
     alignItems: 'center',
     marginTop: -40,
   },
   grow: {
     flexGrow: 1,
+    height: '55vh',
   },
   formControl: {
     margin: theme.spacing(1),
     minWidth: 160,
+    height: '6vh',
   },
   inputRoot: {
     color: 'white',
@@ -35,14 +37,14 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
     padding: 5,
     width: '25vw',
-    height: '15vh',
-    margin: '27vh 36vw',
+    height: '10vh',
+    margin: '32vh 26vw',
     background: '#b26a00',
     fontSize: '2em',
     borderRadius: '20px',
     '&:hover': {
-       backgroundColor: '#ff9800',
-       color: '#ab003c'
+      backgroundColor: 'grey',
+      color: 'black'
     }
   },
 }));

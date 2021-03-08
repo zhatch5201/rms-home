@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const styles = makeStyles({
    root: {
-      width: '99vw',
+      width: '73vw',
       height: '120vh',
       background: '#ff9900',
    },
@@ -13,19 +13,22 @@ const styles = makeStyles({
    },
    h1:{
       textAlign: 'center',
+      textDecoration: 'none',
    },
    button: {
       color: '#000',
-      width: '50vw',
+      width: '40vw',
       height: '25vh',
-      margin: '5vh 25vw',
+      margin: '5vh 17vw',
       background: '#FFF',
       fontSize: '2em',
       borderRadius: '20px',
+      textDecoration: 'none',
       '&:hover': {
          backgroundColor: 'grey',
-         color: '#FFF',
-         boxShadow: '8px 12px 31px -10px grey'
+         color: 'white',
+         boxShadow: '8px 12px 31px -10px grey',
+         textDecoration: 'none',
       }
    }
 });

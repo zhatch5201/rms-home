@@ -62,7 +62,7 @@ export default function IncidentsList() {
 
   const rows = Incidents;
   return (
-    <div style={{ height: 400, width: '100%' }}>
+    <div id="pepe" style={{ height: 400, width: '100%' }}>
       <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection />
     </div>
   );

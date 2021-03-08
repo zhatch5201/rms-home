@@ -79,7 +79,7 @@ export default function PeopleGrid() {
    // console.log(people);
    return (
       <Fragment>
-         <div style={{ height: '100vh', width: '100%' }}>
+         <div id="pepe" style={{ height: '100vh', width: '100%'}}>
             <DataGrid rows={rows} columns={columns} pageSize={25} checkboxSelection />
          </div>
       </Fragment>
