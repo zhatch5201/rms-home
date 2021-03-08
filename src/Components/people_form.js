@@ -30,7 +30,7 @@ function removeFeature(){
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        width: '100vw',
+        width: '73vw',
         margin: 'auto',
         // margin: '2em auto',
         '& .MuiTextField-root': {
