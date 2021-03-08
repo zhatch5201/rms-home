@@ -280,7 +280,7 @@ code {
   );
 }
 
-#pepe, #expDatem .pepe{
+#pepe, #expDate, .pepe, #DateofBirth{
   font-size: 12pt !important;
 }
 #narrative{

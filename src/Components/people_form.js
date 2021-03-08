@@ -198,7 +198,7 @@ export default function FormPropsTextFields() {
                         defaultValue="BLN"
                         name="hair_color" />
                 </FormControl>
-                <TextField id="pepe" inputRef={register} name="date_of_birth" id="DateofBirth" label="Date of Birth" type="date" className={classes.textField} InputLabelProps={{ shrink: true, }} />
+                <TextField inputRef={register} name="date_of_birth" id="DateofBirth" label="Date of Birth" type="date" className={classes.textField} InputLabelProps={{ shrink: true, }} />
                 {/* <TextField inputRef={register} name="age" label="Age" type="number" InputLabelProps={{ shrink: true, }} /> */}
                 {/* <br /> */}
                 <h3>Features</h3>
