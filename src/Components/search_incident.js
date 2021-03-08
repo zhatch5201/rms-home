@@ -2,14 +2,27 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
+
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
 // Zack
 import { useForm } from 'react-hook-form';
 import firebase from 'firebase';
 // Zack
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    fontSize: 3,
+    position: 'relative',
+    alignItems: 'center',
+    marginTop: -40,
+  },
   grow: {
     flexGrow: 1,
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 160,
   },
   inputRoot: {
     color: 'white',
@@ -43,17 +56,47 @@ export default function PrimarySearchAppBar() {
 
   const { register, handleSubmit } = useForm();
   const onSubmit = async (data) => {
-    console.log(window.location.pathname);
-    var person = firebase.firestore().collection('Incidents').where('');
+    let snapshot;
+    let x = 0;
+    let query = data.query.split(' ');
+    console.log(query);
+    const peopleRef = firebase.firestore().collection('Incidents');
+    if (query.length === 1) {
+      snapshot = await peopleRef.where('incident_type', '==', query[0]).get();
+    }
+    // else if (query.length === 2) {
+    //   snapshot = await peopleRef.where('first_name', '==', query[0]).where('last_name', '==', query[1]).get();
+    // }
+    if (snapshot.empty) {
+      console.log('Nobody has that Name!');
+      alert('Nobody has that Name!');
+    } else {
+      snapshot.forEach((doc) => {
+        console.log(doc.id);
+        x++;
+        window.location.pathname = `incidents/grid/${data.query}`;
+        console.log(x);
+      });
+    };
   };
 
   return (
     <div className={classes.grow}>
       <div className={classes.search}>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <SearchIcon />
-          <InputBase placeholder="Search for Incident" classes={{ root: classes.inputRoot, input: classes.inputInput, }} inputProps={{ 'aria-label': 'search' }} />
-          {/* <br /> */}
+        <div className={classes.root}>
+    <FormControl className={classes.formControl}>
+          <InputLabel name="Search Field" id="demo-simple-select-label"></InputLabel>
+          <select>
+              <option type='button' value='Date of Incident'>Date of Incident</option>
+              <option type='button' value='Incident Type'>Incident Type</option>
+              <option type='button' value='Location'>Location</option>
+          </select>
+        </FormControl>
+    </div>
+          <SearchIcon />&nbsp;
+
+          <InputBase inputRef={register} name="query" placeholder="Search for Incident" classes={{ root: classes.inputRoot, input: classes.inputInput, }} inputProps={{ 'aria-label': 'search' }} />
           <input type="submit" />
         </form>
       </div>

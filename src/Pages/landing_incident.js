@@ -14,12 +14,11 @@ const styles = makeStyles({
       textAlign: 'center',
    },
    button: {
-      color: '#FFF',
+      color: '#000',
       width: '50vw',
       height: '25vh',
       margin: '5vh 25vw',
-      background: '#ff9900',
-      color: 'white',
+      background: '#FFF',
       fontSize: '2em',
       borderRadius: '20px',
       '&:hover': {

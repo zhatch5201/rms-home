@@ -3,9 +3,22 @@ import { makeStyles } from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+
 const useStyles = makeStyles((theme) => ({
+  root: {
+    fontSize: 3,
+    position: 'relative',
+    alignItems: 'center',
+    marginTop: -40,
+  },
   grow: {
     flexGrow: 1,
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 160,
   },
   inputRoot: {
     color: 'white',
@@ -41,6 +54,16 @@ export default function PrimarySearchAppBar() {
   return (
     <div className={classes.grow}>
           <div className={classes.search}>
+          <div className={classes.root}>
+    <FormControl className={classes.formControl}>
+          <InputLabel name="Search Field" id="demo-simple-select-label"></InputLabel>
+          <select>
+              <option type='button' value='Make'>Make</option>
+              <option type='button' value='Model'>Model</option>
+              <option type='button' value='Year'>Year</option>
+          </select>
+        </FormControl>
+    </div>
           <SearchIcon />
             <InputBase
               placeholder="Search for Vehicle"

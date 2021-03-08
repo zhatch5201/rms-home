@@ -17,9 +17,9 @@ const useStyles = makeStyles((theme) => ({
   },
   app: {
     backgroundColor: '#FFFFFF',
-    
+
   },
-  
+
   nav: {
     width: '450px',
     marginRight: `calc(1em + ${theme.spacing(20)}px)`,
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
     background: '#ff9900',
-    borderRadius: '15px',
+    // borderRadius: '15px',
     '&:hover': {
       backgroundColor: '#ff9800',
       color: '#ab003c'

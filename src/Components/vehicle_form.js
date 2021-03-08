@@ -41,8 +41,14 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
   button: {
-    backgroundColor: '#000',
-    color: '#FFF',
+    color: '#000',
+      background: '#FFF',
+      borderRadius: '5px',
+      '&:hover': {
+         backgroundColor: 'grey',
+         color: '#FFF',
+         boxShadow: '2px 3px 5px -1px grey'
+      },
     width: 250,
     margin: 10,
     marginLeft: 30,
@@ -65,6 +71,18 @@ export default function FormPropsTextFields() {
 
   const { register, handleSubmit, control } = useForm();
   const onSubmit = (data) => {
+    var vehicle = {
+        license_plate: submittedForm.lp,
+        state: submittedForm.state,
+        vin_num: submittedForm.VinNumber,
+        veh_color: submittedForm.vehicle_color,
+        veh_make: submittedForm.Make,
+        veh_model: submittedForm.Model,
+        veh_year: submittedForm.Year,
+        veh_details: submittedForm.Vehicle_Details,
+        veh_value: submittedForm.Value,
+        veh_relation: submittedForm.Vehicle_Relations
+    }
     submittedForm = data;
     console.log(`The form submitted was: `, submittedForm);
     firebase.firestore().collection('Incidents').doc(submittedForm.uuid).set(submittedForm);
@@ -75,7 +93,7 @@ export default function FormPropsTextFields() {
     <form className={classes.root} onSubmit={handleSubmit(onSubmit)} autoComplete="off">
       <h1>File a Vehicle</h1>
       <div>
-        <TextField inputRef={register} required id="standard-required" label="Liscense Plate" name="LP" placeholder="1HGBH4" pattern='[0-9]^[A-Z]{1,7}$' />
+        <TextField inputRef={register} required id="standard-required" label="Liscense Plate" name="lp" placeholder="1HGBH4" pattern='[0-9]^[A-Z]{1,7}$' />
         <FormControl className={classes.formControl}>
           <InputLabel id="demo-simple-select-label">State</InputLabel>
           <Controller as={
@@ -121,7 +139,7 @@ export default function FormPropsTextFields() {
           rowsMin={10}
           id="filled-full-width"
           label="Vehicle Details"
-          name="Vehicle Details"
+          name="Vehicle_Details"
           style={{
             margin: 4,
             width: 300,
@@ -155,7 +173,7 @@ export default function FormPropsTextFields() {
           rowsMin={10}
           id="filled-full-width"
           label="Vehicle Relations"
-          name="Vehicle Relations"
+          name="Vehicle_Relations"
           style={{
             margin: 8,
             width: 1000

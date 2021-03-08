@@ -38,8 +38,14 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
   button: {
-    backgroundColor: '#000',
-    color: '#FFF',
+    color: '#000',
+      background: '#FFF',
+      borderRadius: '5px',
+      '&:hover': {
+         backgroundColor: 'grey',
+         color: '#FFF',
+         boxShadow: '2px 3px 5px -1px grey'
+      },
     padding: 10,
     //   width: 250,
     //   margin: 10,
@@ -74,6 +80,38 @@ export default function FormPropsTextFields() {
   };
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
+    var incident = {
+      general: {
+        ir_number: submittedForm.id,
+        occ_date: submittedForm.time_of_incident,
+        occ_type: submittedForm.incident_type,
+        location: submittedForm.Location,
+      },
+      people: [{
+        person: {
+          last_name: submittedForm.LastName,
+          first_name: submittedForm.FirstName,
+          middle_name: submittedForm.MiddleName,
+          relevance: submittedForm.relevance
+        },
+      }],
+      vehicles_involved: [{
+          vehicle: {
+            vin: submittedForm.VinNumber,
+            make: submittedForm.Make,
+            model: submittedForm.Model,
+            year: submittedForm.vehicle_year
+          }
+      }],
+      narrative: submittedForm.narrative,
+      officer: {
+        officer_name: submittedForm.Reporting_Officer,
+        officer_num: submittedForm.BadgeNumber
+      },
+      paperwork: {
+        submit_time: 'submittedForm.TimeofFiledReport'
+      }
+    }
     submittedForm = data;
     console.log(`The form submitted was: `, submittedForm);
     firebase.firestore().collection('Incidents').doc(submittedForm.id).set(submittedForm);
@@ -144,7 +182,7 @@ export default function FormPropsTextFields() {
       <h2>Signature</h2>
       {/* section for officer to sign off on report */}
       <div>
-        <TextField inputRef={register} required name="Reporting Officer" label="Reporting Officer" defaultValue="" />
+        <TextField inputRef={register} required name="Reporting_Officer" label="Reporting Officer" defaultValue="" />
         <TextField
           inputRef={register}
           name="BadgeNumber"
