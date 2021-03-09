@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   nav: {
+    position: 'sticky',
     width: '450px',
     marginRight: `calc(1em + ${theme.spacing(20)}px)`,
     borderRadius: theme.shape.borderRadius,
@@ -122,7 +123,7 @@ export default function SearchAppBar() {
 
 
           <div>
-            <Link to="/"><img src={Logo} alt="rms-logo" width="400px" height="75px" /></Link>
+            <Link to="/"><img src={Logo} alt="rms-logo" width="300px" height="50px" className={classes.logo}/></Link>
           </div>
 
           <Typography className={classes.title} variant="h6" noWrap>
