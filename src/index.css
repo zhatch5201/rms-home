@@ -85,9 +85,8 @@ code {
   background-color: #ff9900;
 }
 .card img {
-  width: 120%;
-  max-width: 130%;
-  margin: 1em;
+  width: 100%;
+  max-width: 100%;
 }
 
 /* Card Animation */
@@ -285,4 +284,8 @@ code {
 }
 #narrative{
   font-size: 10pt !important;
+}
+
+#fontSize{
+  font-size: 12pt;
 }
