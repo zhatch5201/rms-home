@@ -86,19 +86,20 @@ export default function PrimarySearchAppBar() {
     <div className={classes.grow}>
       <div className={classes.search}>
         <form onSubmit={handleSubmit(onSubmit)}>
-        <div className={classes.root}>
-    <FormControl className={classes.formControl}>
-          <InputLabel name="Search Field" id="demo-simple-select-label"></InputLabel>
-          <select>
-              <option type='button' value='Date of Incident'>Date of Incident</option>
-              <option type='button' value='Incident Type'>Incident Type</option>
-              <option type='button' value='Location'>Location</option>
-          </select>
-        </FormControl>
-    </div>
+          <div className={classes.root}>
+            <FormControl className={classes.formControl}>
+              <InputLabel name="Search Field" id="demo-simple-select-label"></InputLabel>
+              <select>
+                <option type='button' value='Date of Incident'>Date of Incident</option>
+                <option type='button' value='Incident Type'>Incident Type</option>
+                <option type='button' value='Location'>Location</option>
+              </select>
+            </FormControl>
+          </div>
           <SearchIcon />&nbsp;
 
           <InputBase inputRef={register} name="query" placeholder="Search for Incident" classes={{ root: classes.inputRoot, input: classes.inputInput, }} inputProps={{ 'aria-label': 'search' }} />
+          <br/><br/>
           <input type="submit" />
         </form>
       </div>

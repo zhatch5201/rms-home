@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const styles = makeStyles({
    root: {
+      textAlign: 'center',
       width: '73vw',
       height: '120vh',
       background: '#ff9900',

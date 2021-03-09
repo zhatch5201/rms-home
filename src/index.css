@@ -1,6 +1,11 @@
+#headerName a{
+  color: orange;
+}
+
 html {
   background: url("Components/campus-centeral.jpg") fixed no-repeat;
   background-size: cover;
+  overflow-x: hidden;
 }
 
 body {
@@ -85,9 +90,8 @@ code {
   background-color: #ff9900;
 }
 .card img {
-  width: 120%;
-  max-width: 130%;
-  margin: 1em;
+  width: 100%;
+  max-width: 100%;
 }
 
 /* Card Animation */
@@ -280,9 +284,13 @@ code {
   );
 }
 
-#pepe, #expDatem .pepe{
+#pepe, #expDate, .pepe, #DateofBirth{
   font-size: 12pt !important;
 }
 #narrative{
   font-size: 10pt !important;
+}
+
+#fontSize{
+  font-size: 12pt;
 }

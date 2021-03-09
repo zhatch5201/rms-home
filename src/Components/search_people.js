@@ -98,6 +98,7 @@ export default function PrimarySearchAppBar() {
           <SearchIcon />&nbsp;
 
           <InputBase inputRef={register} name="query" placeholder="Search for People" classes={{ root: classes.inputRoot, input: classes.inputInput, }} inputProps={{ 'aria-label': 'search' }} />
+          <br/><br/>
           <input type="submit" />
         </form>
       </div>
