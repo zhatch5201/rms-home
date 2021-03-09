@@ -121,13 +121,13 @@ export default function FormPropsTextFields() {
             <form className={classes.root} onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
                 <h1>File a Person's Report</h1>
                 <h2>Demographics</h2>
-                <TextField id="pepe" inputRef={register} required name="last_name" placeholder="Doe" label="Last Name" />
-                <TextField id="pepe" inputRef={register} required name="first_name" placeholder="John" label="First Name" />
-                <TextField id="pepe" inputRef={register} required name="middle_name" placeholder="F" label="Middle Name or Initial" />
+                <TextField id="pepe" label={<h5>Last Name</h5>} inputRef={register} required name="last_name" placeholder="Doe" />
+                <TextField id="pepe" inputRef={register} required name="first_name" placeholder="John" label={<h5>First Name</h5>}  />
+                <TextField id="pepe" inputRef={register} required name="middle_name" placeholder="F"  label={<h5>Middle Name or Initial</h5>} />
                 <br />
-                <TextField id="pepe" inputRef={register} name="number" required label="License" placeholder="AZ#######" />
+                <TextField id="pepe" inputRef={register} name="number" required label={<h5>License</h5>} placeholder="AZ#######" />
                 <FormControl className={classes.formControl}>
-                    <InputLabel id="demo-simple-select-label">State</InputLabel>
+                    <InputLabel id="pepe">State</InputLabel>
                     <Controller as={
                         <Select id="pepe">
                             <MenuItem value='AZ'>AZ</MenuItem>
@@ -142,7 +142,7 @@ export default function FormPropsTextFields() {
                     inputRef={register}
                     name="expiration"
                     id="expDate"
-                    label="Exp. Date"
+                    label={<h5>Exp. Date</h5>}
                     type="date"
                     className={classes.textField}
                     InputLabelProps={{
@@ -153,13 +153,13 @@ export default function FormPropsTextFields() {
                     id="pepe"
                     inputRef={register}
                     name="ssn"
-                    label="SSN"
+                    label={<h5>SSN</h5>}
                     type="number"
                 />
                 <br />
-                <TextField id="pepe" inputRef={register} name="race" required label="Race" />
+                <TextField id="pepe" inputRef={register} name="race" required label={<h5>Race</h5>} />
                 <FormControl className={classes.formControl}>
-                    <InputLabel id="demo-simple-select-label">Gender</InputLabel>
+                    <InputLabel id="pepe">Gender</InputLabel>
                     <Controller as=
                         {<Select id="pepe">
                             <MenuItem value={'F'}>Female</MenuItem>
@@ -171,11 +171,11 @@ export default function FormPropsTextFields() {
                         name="sex"
                     />
                 </FormControl>
-                <TextField id="pepe"inputRef={register} name="height" label="Height" type="number" placeholder="###" />
-                <TextField id="pepe"inputRef={register} name="weight" label="Weight" type="number" placeholder="###" />
+                <TextField id="pepe"inputRef={register} name="height" label={<h5>Height</h5>}  type="number" placeholder="###" />
+                <TextField id="pepe"inputRef={register} name="weight" label={<h5>Weight</h5>} type="number" placeholder="###" />
                 <br />
                 <FormControl className={classes.formControl}>
-                    <InputLabel id="demo-simple-select-label">Eye Color</InputLabel>
+                    <InputLabel id="pepe">Eye Color</InputLabel>
                     <Controller as={
                         <Select id="pepe">
                             <MenuItem value={'BRN'}>Brown</MenuItem>
@@ -187,7 +187,7 @@ export default function FormPropsTextFields() {
                         name="eye_color" />
                 </FormControl>
                 <FormControl className={classes.formControl}>
-                    <InputLabel id="demo-simple-select-label">Hair Color</InputLabel>
+                    <InputLabel id="pepe">Hair Color</InputLabel>
                     <Controller as=
                         {<Select id="pepe">
                             <MenuItem value={'BRN'}>Brown</MenuItem>
@@ -198,7 +198,7 @@ export default function FormPropsTextFields() {
                         defaultValue="BLN"
                         name="hair_color" />
                 </FormControl>
-                <TextField id="pepe" inputRef={register} name="date_of_birth" id="DateofBirth" label="Date of Birth" type="date" className={classes.textField} InputLabelProps={{ shrink: true, }} />
+                <TextField id="pepe" inputRef={register} name="date_of_birth" id="DateofBirth" label={<h5>Date of Birth</h5>} type="date" className={classes.textField} InputLabelProps={{ shrink: true, }} />
                 {/* <TextField inputRef={register} name="age" label="Age" type="number" InputLabelProps={{ shrink: true, }} /> */}
                 {/* <br /> */}
                 <h3>Features</h3>
@@ -206,7 +206,7 @@ export default function FormPropsTextFields() {
                 <TextareaAutosize
                     rowsMin={5}
                     id="filled-full-width"
-                    label="Features"
+                    label={<h5>Features</h5>}
                     name="features"
                     placeholder="Tattoos, scars, noticeable features"
                     style={{
@@ -219,8 +219,8 @@ export default function FormPropsTextFields() {
                 </div>
                 <button onClick={addFeatures} variant="contained" color="primary" className={classes.button}>New Feature</button>
                 <br />
-                <TextField id="pepe" inputRef={register} name="address" label="Home Address" placeholder="" />
-                <TextField id="pepe" inputRef={register} name="number" label="Main Phone Number" type="number" placeholder="###" />
+                <TextField id="pepe" inputRef={register} name="address" label={<h5>Home Address</h5>} placeholder="" />
+                <TextField id="pepe" inputRef={register} name="number" label={<h5>Main Phone Number</h5>} type="number" placeholder="###" />
                 <br />
                 <h3>Known Incidents</h3>
                 <TextareaAutosize

@@ -126,18 +126,18 @@ export default function FormPropsTextFields() {
       <h1>Report an Incident</h1>
       {/* creates a section for information on incident */}
       <div>
-        <TextField id="pepe" inputRef={register} name="id" value={IR_Number()} label="IR Number (Readonly)" type="string" InputLabelProps={{ shrink: true, }} />
-        <TextField id="pepe" inputRef={register} name="time_of_incident" label="Time of Incident" type="datetime-local" defaultValue="YYYY-MM-DDT" className={classes.textField} InputLabelProps={{ shrink: true, }} />
-        <TextField id="pepe" inputRef={register} required name="incident_type" label="Incident Type" defaultValue="" />
-        <TextField id="pepe" inputRef={register} required name="Location" label="Location" defaultValue="" />
+        <TextField id="pepe" inputRef={register} name="id" value={IR_Number()} label={<h5>IR Number (Readonly)</h5>} type="string" InputLabelProps={{ shrink: true, }} />
+        <TextField id="pepe" inputRef={register} name="time_of_incident" label={<h5>Time of Incident</h5>} type="datetime-local" defaultValue="YYYY-MM-DDT" className={classes.textField} InputLabelProps={{ shrink: true, }} />
+        <TextField id="pepe" inputRef={register} required name="incident_type" label={<h5>Incident Type</h5>} defaultValue="" />
+        <TextField id="pepe" inputRef={register} required name="Location" label={<h5>Location</h5>} defaultValue="" />
       </div>
       <h2>People Involved<Button onClick={addperson} variant="contained" color="primary" className={classes.button}>New Person</Button></h2>
       <div id="people">
-        <TextField id="pepe" inputRef={register} label="Last Name" name="LastName" placeholder="Doe" />
-        <TextField id="pepe" inputRef={register} label="First Name" name="FirstName" placeholder="John" />
-        <TextField id="pepe" inputRef={register} label="Middle Name or Initial" name="MiddleName" placeholder="A." />
+        <TextField id="pepe" inputRef={register} label={<h5>Last Name</h5>} name="LastName" placeholder="Doe" />
+        <TextField id="pepe" inputRef={register} label={<h5>First Name</h5>} name="FirstName" placeholder="John" />
+        <TextField id="pepe" inputRef={register} label={<h5>Middle Name or Initial</h5>} name="MiddleName" placeholder="A." />
         <FormControl className={classes.formControl}>
-          <InputLabel name="relevance" id="demo-simple-select-label"></InputLabel>
+          <InputLabel name="relevance" id="pepe"></InputLabel>
           <select>
             <option inputType="Radio" name="RP" value="RP">RP</option>
             <option inputType="Radio" name="W" value="W">W</option>
@@ -149,9 +149,9 @@ export default function FormPropsTextFields() {
       </div>
       <h2>Vehicle Involved<Button onClick={addvehicle} variant="contained" color="primary" className={classes.button}>New Vehicle</Button></h2>
       <div id="vehicle">
-        <TextField id="pepe" inputRef={register} label="Vin Number" name="VinNumber" placeholder="1HGBH41JXMN109186" pattern='[0-9]^[A-Z]{1,17}$' />
-        <TextField id="pepe" inputRef={register} label="Make" name="Make" placeholder="Ford" />
-        <TextField id="pepe" inputRef={register} label="Model" name="Model" placeholder="Crown Victoria" />
+        <TextField id="pepe" inputRef={register}  label={<h5>Vin Number</h5>} name="VinNumber" placeholder="1HGBH41JXMN109186" pattern='[0-9]^[A-Z]{1,17}$' />
+        <TextField id="pepe" inputRef={register}  label={<h5>Make</h5>} name="Make" placeholder="Ford" />
+        <TextField id="pepe" inputRef={register}  label={<h5>Model</h5>} name="Model" placeholder="Crown Victoria" />
         <FormControl className={classes.formControl}>
           Year
           <input type="number" ref={register} name="vehicle_year" pattern="[0-9]{4}" />
@@ -183,12 +183,12 @@ export default function FormPropsTextFields() {
       <h2>Signature</h2>
       {/* section for officer to sign off on report */}
       <div>
-        <TextField id="pepe" inputRef={register} required name="Reporting Officer" label="Reporting Officer" defaultValue="" />
+        <TextField id="pepe" inputRef={register} required name="Reporting Officer"  label={<h5>Reporting Officer</h5>} defaultValue="" />
         <TextField
           id="pepe"
           inputRef={register}
           name="BadgeNumber"
-          label="Badge Number"
+          label={<h5>Badge Number</h5>}
           type="number"
           InputLabelProps={{
             shrink: true,
@@ -198,7 +198,7 @@ export default function FormPropsTextFields() {
           id="pepe"
           inputRef={register}
           name="TimeofFiledReport"
-          label="Time of Filed Report"
+          label={<h5>Time of Filed Report</h5>}
           type="datetime-local"
           className={classes.textField}
           InputLabelProps={{
