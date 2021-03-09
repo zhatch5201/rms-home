@@ -51,31 +51,34 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PrimarySearchAppBar() {
   const classes = useStyles();
- 
+
 
   return (
     <div className={classes.grow}>
-          <div className={classes.search}>
-          <div className={classes.root}>
-    <FormControl className={classes.formControl}>
-          <InputLabel name="Search Field" id="demo-simple-select-label"></InputLabel>
-          <select>
+      <div className={classes.search}>
+        <div className={classes.root}>
+          <FormControl className={classes.formControl}>
+            <InputLabel name="Search Field" id="demo-simple-select-label"></InputLabel>
+            <select>
               <option type='button' value='Make'>Make</option>
               <option type='button' value='Model'>Model</option>
               <option type='button' value='Year'>Year</option>
-          </select>
-        </FormControl>
-    </div>
-          <SearchIcon />
-            <InputBase
-              placeholder="Search for Vehicle"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
+            </select>
+          </FormControl>
+        </div>
+        <SearchIcon />
+        <InputBase
+          placeholder="Search for Vehicle"
+          classes={{
+            root: classes.inputRoot,
+            input: classes.inputInput,
+          }}
+          inputProps={{ 'aria-label': 'search' }}
+        />
+        <br/><br/>
+          <input type="submit" />
+      </div>
+
     </div>
   );
 }
