@@ -5,6 +5,7 @@
 html {
   background: url("Components/campus-centeral.jpg") fixed no-repeat;
   background-size: cover;
+  overflow: hidden;
 }
 
 body {
