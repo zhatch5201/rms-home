@@ -32,7 +32,7 @@ export default function IncidentsList() {
       console.log(query);
       const incidentRef = firebase.firestore().collection('Incident');
       if (query.length === 1) {
-        snapshot = await incidentRef.where('first_name', '==', query[0]).get();
+        snapshot = await incidentRef.where('id', '==', query[0]).get();
       }
       snapshot.forEach((doc) => {
         items.push(doc.data());

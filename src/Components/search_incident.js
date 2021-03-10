@@ -62,9 +62,9 @@ export default function PrimarySearchAppBar() {
     let x = 0;
     let query = data.query.split(' ');
     console.log(query);
-    const peopleRef = firebase.firestore().collection('Incidents');
+    const peopleRef = firebase.firestore().collection('Incident');
     if (query.length === 1) {
-      snapshot = await peopleRef.where('incident_type', '==', query[0]).get();
+      snapshot = await peopleRef.where('id', '==', query[0]).get();
     }
     // else if (query.length === 2) {
     //   snapshot = await peopleRef.where('first_name', '==', query[0]).where('last_name', '==', query[1]).get();

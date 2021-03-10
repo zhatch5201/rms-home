@@ -14,59 +14,82 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { fromString } from "uuidv4";
 
 // general styles
-const useStyles = makeStyles({
+
+const cardStyles = makeStyles({
   root: {
-    background: "#ffb938",
-    color: "amber",
-    minWidth: 275,
-    // maxWidth: "33vw",
-    margin: "5vw auto"
+     background: '#ffb938',
+     color: 'amber',
+     minWidth: 275,
+     maxWidth: '33vw',
+     margin: '5vw auto'
   },
   img: {
-    // position: 'absolute',
-    // transform: 'translateY(-90px) translateX(300%)'
+     // position: 'absolute',
+     // transform: 'translateY(-90px) translateX(300%)'
   },
   h4: {
-    width: "100%",
-    textAlign: "center",
-    margin: "-19px 0px 0px 0px"
+     width: '100%',
+     textAlign: 'center',
+     margin: '-19px 0px 0px 0px'
   },
   td: {
-    color: "#704019",
-    textAlign: "right"
+     color: '#704019',
+     textAlign: 'right'
   }
 });
-// styles for dropdown
+
 const accordionStyles = makeStyles((theme) => ({
   bottom: {
-    background: "#8f774a"
-    // width: '100px',
+     background: '#8f774a',
+     // width: '100px',
   },
   heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular
+     fontSize: theme.typography.pxToRem(15),
+     fontWeight: theme.typography.fontWeightRegular,
   },
   table: {
-    width: "100%"
+     width: '100%'
   },
   th: {
-    textAlign: "left"
+     textAlign: 'left'
   },
   td: {
-    color: "#ffde9c",
-    textAlign: "left"
+     color: '#ffde9c',
+     textAlign: 'right'
   }
 }));
 
-export default function SimpleCard() {
-  const classes = useStyles();
+export default function IncidentCard() {
   // uses general styles
   const accordionClasses = accordionStyles();
 
+  let incident_query_raw = window.location.pathname.toString();
+  // console.log(incident_query_raw);
+  const incident_query = incident_query_raw.substring(incident_query_raw.length - 36, incident_query_raw.length);
+  // console.log(incident_query);
+  const classes = cardStyles();
+  // Has to load whole People collection to get random person... for now...
+  const [Incident, setIncident] = useState();
+  const [loading, setLoading] = useState(true);
+  const ref = firebase.firestore().collection("Incident");
+  // var person;
+  async function getIncident() {
+     const doc = await ref.doc(incident_query).get();
+     setIncident(doc.data());
+     setLoading(false);
+     return doc.data();
+  }
+  useEffect(() => {
+     getIncident();
+  }, []);
+
+  if (loading) {
+     return (<h1>Loading...</h1>);
+  }
   return (
     <Card className={classes.root}>
       <CardContent>
-        <h1>Incidence Report (IR number here)</h1>
+        <h1>Incident Report (IR number here) <h1>{`${Incident.id}`}</h1></h1>
         <table>
           {/* creates a table for info on incident */}
           <tbody>
