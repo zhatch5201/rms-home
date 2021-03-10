@@ -97,30 +97,38 @@ export default function PersonCard() {
    return (
       <Card className={classes.root}>
          <CardContent>
+            {/* Fills in person's full name */}
             <h1>{`${person.first_name} ${person.middle_name}. ${person.last_name}`} <br /><img className={classes.img} alt='mugshot' width="100px" height="100px" src={person.mugshots} /></h1>
             <h4 className={classes.h4}>Details</h4><hr />
+            {/* table to house all the person's info */}
             <table className={accordionClasses.table}>
                <tbody>
+                  {/* Address */}
                   <tr>
                      <th className={accordionClasses.th}>Address</th>
                      <td className={classes.td}>{person.address}</td>
                   </tr>
+                  {/* Phone Number */}
                   <tr>
                      <th className={accordionClasses.th}>Phone Number</th>
                      <td className={classes.td}>{person.phone_number}</td>
                   </tr>
+                  {/* SSN */}
                   <tr>
                      <th className={accordionClasses.th}>Social Security Number</th>
                      <td className={classes.td}>{person.ssn}</td>
                   </tr>
+                  {/* Hazard */}
                   <tr>
                      <th className={accordionClasses.th}>Hazard</th>
                      <td color="red" className={classes.td}>{person.hazard}</td>
                   </tr>
+                  {/* Vehicles */}
                   <tr>
                      <th className={accordionClasses.th}>Vehicles</th>
                      <td className={classes.td}>{person.vehicles}</td>
                   </tr>
+                  {/* Incidents */}
                   <tr>
                      <th className={accordionClasses.th}>Incidents</th>
                      <td className={classes.td}>{person.incidents}</td>
@@ -138,30 +146,37 @@ export default function PersonCard() {
                <AccordionDetails>
                   <table className={accordionClasses.table}>
                      <tbody>
+                        {/* Age */}
                         <tr>
                            <th className={accordionClasses.th}>Age</th>
                            <td className={accordionClasses.td}>{person.demographic.age}</td>
                         </tr>
+                        {/* Date of Birth */}
                         <tr>
                            <th className={accordionClasses.th}>Date of bith</th>
                            <td className={accordionClasses.td}>{person.demographic.date_of_birth}</td>
                         </tr>
+                        {/* Eye Color */}
                         <tr>
                            <th className={accordionClasses.th}>Eye Color</th>
                            <td className={accordionClasses.td}>{person.demographic.eye_color}</td>
                         </tr>
+                        {/* Hair Color */}
                         <tr>
                            <th className={accordionClasses.th}>Hair Color</th>
                            <td className={accordionClasses.td}>{person.demographic.hair_color}</td>
                         </tr>
+                        {/* Height */}
                         <tr>
                            <th className={accordionClasses.th}>Height</th>
                            <td className={accordionClasses.td}>{person.demographic.height.substring(0, 1)}ft. {person.demographic.height.substring(1, 2)}in</td>
                         </tr>
+                        {/* Race */}
                         <tr>
                            <th className={accordionClasses.th}>Race</th>
                            <td className={accordionClasses.td}>{person.demographic.race}</td>
                         </tr>
+                        {/* Sex */}
                         <tr>
                            <th className={accordionClasses.th}>Sex</th>
                            <td className={accordionClasses.td}>{person.demographic.sex}</td>

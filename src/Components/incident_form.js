@@ -126,16 +126,26 @@ export default function FormPropsTextFields() {
       <h1>Report an Incident</h1>
       {/* creates a section for information on incident */}
       <div>
-        <TextField id="pepe" inputRef={register} name="id" value={IR_Number()} label={<h5>IR Number (Readonly)</h5>} type="string" InputLabelProps={{ shrink: true, }} />
-        <TextField id="pepe" inputRef={register} name="time_of_incident" label={<h5>Time of Incident</h5>} type="datetime-local" defaultValue="YYYY-MM-DDT" className={classes.textField} InputLabelProps={{ shrink: true, }} />
-        <TextField id="pepe" inputRef={register} required name="incident_type" label={<h5>Incident Type</h5>} defaultValue="" />
-        <TextField id="pepe" inputRef={register} required name="Location" label={<h5>Location</h5>} defaultValue="" />
+        {/* IR Number */}
+        <TextField id="pepe" inputRef={register} name="id" value={IR_Number()} label="IR Number (Readonly)" type="string" InputLabelProps={{ shrink: true, }} />
+        {/* Time of Incident */}
+        <TextField id="pepe" inputRef={register} name="time_of_incident" label="Time of Incident" type="datetime-local" defaultValue="YYYY-MM-DDT" className={classes.textField} InputLabelProps={{ shrink: true, }} />
+        {/* Type of Incident */}
+        <TextField id="pepe" inputRef={register} required name="incident_type" label="Incident Type" defaultValue="" />
+        {/* Location of Incident */}
+        <TextField id="pepe" inputRef={register} required name="Location" label="Location" defaultValue="" />
       </div>
+      {/* Button to add another person */}
       <h2>People Involved<Button onClick={addperson} variant="contained" color="primary" className={classes.button}>New Person</Button></h2>
+      {/* Section for people involved */}
       <div id="people">
-        <TextField id="pepe" inputRef={register} label={<h5>Last Name</h5>} name="LastName" placeholder="Doe" />
-        <TextField id="pepe" inputRef={register} label={<h5>First Name</h5>} name="FirstName" placeholder="John" />
-        <TextField id="pepe" inputRef={register} label={<h5>Middle Name or Initial</h5>} name="MiddleName" placeholder="A." />
+        {/* Last Name */}
+        <TextField id="pepe" inputRef={register} label="Last Name" name="LastName" placeholder="Doe" />
+        {/* First Name */}
+        <TextField id="pepe" inputRef={register} label="First Name" name="FirstName" placeholder="John" />
+        {/* Middle Name/Initial */}
+        <TextField id="pepe" inputRef={register} label="Middle Name or Initial" name="MiddleName" placeholder="A." />
+        {/* Relation to incident */}
         <FormControl className={classes.formControl}>
           <InputLabel name="relevance" id="pepe"></InputLabel>
           <select>
@@ -147,11 +157,17 @@ export default function FormPropsTextFields() {
           </select>
         </FormControl>
       </div>
+      {/* Button to add another vehicle */}
       <h2>Vehicle Involved<Button onClick={addvehicle} variant="contained" color="primary" className={classes.button}>New Vehicle</Button></h2>
+      {/* Section for vehicles */}
       <div id="vehicle">
-        <TextField id="pepe" inputRef={register}  label={<h5>Vin Number</h5>} name="VinNumber" placeholder="1HGBH41JXMN109186" pattern='[0-9]^[A-Z]{1,17}$' />
-        <TextField id="pepe" inputRef={register}  label={<h5>Make</h5>} name="Make" placeholder="Ford" />
-        <TextField id="pepe" inputRef={register}  label={<h5>Model</h5>} name="Model" placeholder="Crown Victoria" />
+        {/* Vin number */}
+        <TextField id="pepe" inputRef={register} label="Vin Number" name="VinNumber" placeholder="1HGBH41JXMN109186" pattern='[0-9]^[A-Z]{1,17}$' />
+        {/* Make */}
+        <TextField id="pepe" inputRef={register} label="Make" name="Make" placeholder="Ford" />
+        {/* Model */}
+        <TextField id="pepe" inputRef={register} label="Model" name="Model" placeholder="Crown Victoria" />
+        {/* Year */}
         <FormControl className={classes.formControl}>
           Year
           <input type="number" ref={register} name="vehicle_year" pattern="[0-9]{4}" />

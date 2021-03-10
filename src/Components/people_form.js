@@ -121,11 +121,16 @@ export default function FormPropsTextFields() {
             <form className={classes.root} onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
                 <h1>File a Person's Report</h1>
                 <h2>Demographics</h2>
-                <TextField id="pepe" label={<h5>Last Name</h5>} inputRef={register} required name="last_name" placeholder="Doe" />
-                <TextField id="pepe" inputRef={register} required name="first_name" placeholder="John" label={<h5>First Name</h5>}  />
-                <TextField id="pepe" inputRef={register} required name="middle_name" placeholder="F"  label={<h5>Middle Name or Initial</h5>} />
+                {/* last name */}
+                <TextField id="pepe" inputRef={register} required name="last_name" placeholder="Doe" label="Last Name" />
+                {/* first name */}
+                <TextField id="pepe" inputRef={register} required name="first_name" placeholder="John" label="First Name" />
+                {/* middle name/initial */}
+                <TextField id="pepe" inputRef={register} required name="middle_name" placeholder="F" label="Middle Name or Initial" />
                 <br />
-                <TextField id="pepe" inputRef={register} name="number" required label={<h5>License</h5>} placeholder="AZ#######" />
+                {/* license plate number */}
+                <TextField id="pepe" inputRef={register} name="number" required label="License" placeholder="AZ#######" />
+                {/* state where license issued */}
                 <FormControl className={classes.formControl}>
                     <InputLabel id="pepe">State</InputLabel>
                     <Controller as={
@@ -138,6 +143,7 @@ export default function FormPropsTextFields() {
                         defaultValue="AZ"
                         name="state" />
                 </FormControl>
+                {/* license exp date */}
                 <TextField
                     inputRef={register}
                     name="expiration"
@@ -149,6 +155,7 @@ export default function FormPropsTextFields() {
                         shrink: true,
                     }}
                 />
+                {/* social security number */}
                 <TextField
                     id="pepe"
                     inputRef={register}
@@ -157,7 +164,9 @@ export default function FormPropsTextFields() {
                     type="number"
                 />
                 <br />
-                <TextField id="pepe" inputRef={register} name="race" required label={<h5>Race</h5>} />
+                {/* Race */}
+                <TextField id="pepe" inputRef={register} name="race" required label="Race" />
+                {/* Gender */}
                 <FormControl className={classes.formControl}>
                     <InputLabel id="pepe">Gender</InputLabel>
                     <Controller as=
@@ -171,9 +180,12 @@ export default function FormPropsTextFields() {
                         name="sex"
                     />
                 </FormControl>
-                <TextField id="pepe"inputRef={register} name="height" label={<h5>Height</h5>}  type="number" placeholder="###" />
-                <TextField id="pepe"inputRef={register} name="weight" label={<h5>Weight</h5>} type="number" placeholder="###" />
+                {/* Height */}
+                <TextField id="pepe"inputRef={register} name="height" label="Height" type="number" placeholder="###" />
+                {/* Weight */}
+                <TextField id="pepe"inputRef={register} name="weight" label="Weight" type="number" placeholder="###" />
                 <br />
+                {/* Eye Color */}
                 <FormControl className={classes.formControl}>
                     <InputLabel id="pepe">Eye Color</InputLabel>
                     <Controller as={
@@ -186,6 +198,7 @@ export default function FormPropsTextFields() {
                         defaultValue="BLU"
                         name="eye_color" />
                 </FormControl>
+                {/* Hair Color */}
                 <FormControl className={classes.formControl}>
                     <InputLabel id="pepe">Hair Color</InputLabel>
                     <Controller as=
@@ -198,11 +211,13 @@ export default function FormPropsTextFields() {
                         defaultValue="BLN"
                         name="hair_color" />
                 </FormControl>
-                <TextField id="pepe" inputRef={register} name="date_of_birth" id="DateofBirth" label={<h5>Date of Birth</h5>} type="date" className={classes.textField} InputLabelProps={{ shrink: true, }} />
+                {/* Date of Birth */}
+                <TextField inputRef={register} name="date_of_birth" id="DateofBirth" label="Date of Birth" type="date" className={classes.textField} InputLabelProps={{ shrink: true, }} />
                 {/* <TextField inputRef={register} name="age" label="Age" type="number" InputLabelProps={{ shrink: true, }} /> */}
                 {/* <br /> */}
                 <h3>Features</h3>
                 <div id="featuresDiv">
+                    {/* Features */}
                 <TextareaAutosize
                     rowsMin={5}
                     id="filled-full-width"
@@ -217,12 +232,16 @@ export default function FormPropsTextFields() {
                     variant="filled"
                 />
                 </div>
+                {/* To add a new features box */}
                 <button onClick={addFeatures} variant="contained" color="primary" className={classes.button}>New Feature</button>
                 <br />
-                <TextField id="pepe" inputRef={register} name="address" label={<h5>Home Address</h5>} placeholder="" />
-                <TextField id="pepe" inputRef={register} name="number" label={<h5>Main Phone Number</h5>} type="number" placeholder="###" />
+                {/* Home address */}
+                <TextField id="pepe" inputRef={register} name="address" label="Home Address" placeholder="" />
+                {/* Phone Number */}
+                <TextField id="pepe" inputRef={register} name="number" label="Main Phone Number" type="number" placeholder="###" />
                 <br />
                 <h3>Known Incidents</h3>
+                {/* Desc of known incidents */}
                 <TextareaAutosize
                     rowsMin={5}
                     id="filled-full-width"
@@ -237,6 +256,7 @@ export default function FormPropsTextFields() {
                     variant="filled"
                 />
                 <h3>Vehicles</h3>
+                {/* owned vehicles */}
                 <TextareaAutosize
                     rowsMin={5}
                     id="filled-full-width"
@@ -252,9 +272,11 @@ export default function FormPropsTextFields() {
                 />
                 <h3>Mugshot</h3>
                 <br/>
+                {/* for uploading a mugshot */}
                 <input type="file" accept="image/*" name="mugshot" id="mugshot" />
                 {/* ^^ working on uploading and displaying a mugshot */}
                 <br />
+                {/* Desc of Hazard */}
                 <TextareaAutosize
                     rowsMin={5}
                     id="filled-full-width"
@@ -270,10 +292,12 @@ export default function FormPropsTextFields() {
                     variant="filled"
                 />
                 <br />
+                {/* Gang Affiliation */}
                 <FormControlLabel
                     label="Gang Affiliation"
                     control={<Checkbox checked={state.checkedA} onChange={handleChange} name="gang" />}
                 />
+                {/* Hazardous checkbox */}
                 <FormControlLabel
                     label="Hazardous"
                     control={<Checkbox checked={state.checkedB} onChange={handleChange} name="hazard" />}

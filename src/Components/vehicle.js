@@ -71,26 +71,32 @@ export default function SimpleCard() {
         {/* creates a section for vehicles */}
         <table>
           <tbody>
+            {/* License Plate Number */}
             <tr>
               <th>License Plate #:</th>
               <td className={classes.td}>(number)</td>
             </tr>
+            {/* State */}
             <tr>
               <th>State:</th>
               <td className={classes.td}>(state)</td>
             </tr>
+            {/* Color of Vehicle */}
             <tr>
               <th>Color:</th>
               <td className={classes.td}>(color)</td>
             </tr>
+            {/* Year */}
             <tr>
               <th>Year:</th>
               <td className={classes.td}>(year)</td>
             </tr>
+            {/* Model */}
             <tr>
               <th>Model:</th>
               <td className={classes.td}>(model)</td>
             </tr>
+            {/* Value */}
             <tr>
               <th>Value:</th>
               <td className={classes.td}>($)</td>
@@ -98,6 +104,7 @@ export default function SimpleCard() {
           </tbody>
         </table>
         <br />
+        {/* Details of Vehicle */}
         <Accordion className={accordionClasses.bottom}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
@@ -128,6 +135,7 @@ export default function SimpleCard() {
           </AccordionDetails>
         </Accordion>
         <br />
+        {/* Relations of vehicle */}
         <Accordion className={accordionClasses.bottom}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
