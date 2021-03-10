@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import { app as firebase } from './firebase';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { Link } from 'react-router-dom';
 
@@ -14,11 +14,11 @@ export default function IncidentsList() {
 
   async function getIncidents() {
     setLoading(true);
-    if (window.location.pathname === '/people/grid') {
+    if (window.location.pathname === '/incidents/grid') {
       ref.onSnapshot((querySnapshot) => {
         const items = [];
-        querySnapshot.forEach((person) => {
-          items.push(person.data());
+        querySnapshot.forEach((incident) => {
+          items.push(incident.data());
         });
         setIncidents(items);
         setLoading(false);
@@ -30,9 +30,9 @@ export default function IncidentsList() {
       let pathname = window.location.pathname;
       var query = pathname.substring(15, pathname.length);
       console.log(query);
-      const peopleRef = firebase.firestore().collection('People');
+      const incidentRef = firebase.firestore().collection('Incident');
       if (query.length === 1) {
-        snapshot = await peopleRef.where('first_name', '==', query[0]).get();
+        snapshot = await incidentRef.where('first_name', '==', query[0]).get();
       }
       snapshot.forEach((doc) => {
         items.push(doc.data());
@@ -44,7 +44,7 @@ export default function IncidentsList() {
 
   useEffect(() => {
     getIncidents();
-  }, []);
+ }, []);
 
   if (loading) {
     return (<CircularProgress color="secondary" />);
@@ -62,8 +62,10 @@ export default function IncidentsList() {
 
   const rows = Incidents;
   return (
+    <Fragment id="pepe">
     <div id="pepe" style={{ height: 400, width: '100%' }}>
       <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection />
     </div>
+    </Fragment>
   );
 }
