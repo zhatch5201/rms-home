@@ -93,7 +93,9 @@ export default function FormPropsTextFields() {
     <form className={classes.root} onSubmit={handleSubmit(onSubmit)} autoComplete="off">
       <h1>File a Vehicle</h1>
       <div>
+        {/* License Plate Number */}
         <TextField inputRef={register} required id="pepe" label="Liscense Plate" name="LP" placeholder="1HGBH4" pattern='[0-9]^[A-Z]{1,7}$' />
+        {/* State for Vehicle */}
         <FormControl className={classes.formControl}>
           <InputLabel id="demo-simple-select-label">State</InputLabel>
           <Controller as={
@@ -106,8 +108,10 @@ export default function FormPropsTextFields() {
             defaultValue="AZ"
             name="state" />
         </FormControl>
+        {/* Vin Number */}
         <TextField inputRef={register} required id="pepe" label="Vin Number" name="VinNumber" placeholder="1HGBH41JXMN109186" pattern='[0-9]^[A-Z]{1,17}$' />
         <br />
+        {/* Vehicle Color */}
         <FormControl className={classes.formControl}>
           <InputLabel id="demo-simple-select-label">Vehicle Color</InputLabel>
           <Controller as={
@@ -119,8 +123,11 @@ export default function FormPropsTextFields() {
             control={control}
             name="vehicle_color" />
         </FormControl>
+        {/* Make of Vehicle */}
         <TextField inputRef={register} required id="pepe" label="Make" name="Make" placeholder="Ford" />
+        {/* Model of Vehicle */}
         <TextField inputRef={register} required id="pepe" label="Model" name="Model" placeholder="Crown Victoria" />
+        {/* Year of Vehicle */}
         <FormControl className={classes.formControl}>
           <InputLabel name="Year" id="demo-simple-select-label"></InputLabel>
           <h10>Year</h10>
@@ -128,11 +135,12 @@ export default function FormPropsTextFields() {
         </FormControl>
       </div>
       <h2>Vehicle Details
+        {/* To add another box for vehicle details */}
     <Button onClick={addvehicle} variant="contained" color="primary" className={classes.button}>
           New Vehicle Details
     </Button>
       </h2>
-
+      {/* details on vehicle */}
       <div id="vehicle">
         <TextareaAutosize
           ref={register}
@@ -157,7 +165,7 @@ export default function FormPropsTextFields() {
       </div>
 
       <br />
-
+      {/* Value of vehicle */}
       <FormControl className={classes.formControl}>
         <InputLabel name="Value" id="demo-simple-select-label"></InputLabel>
         <h10>Value</h10>
@@ -165,6 +173,7 @@ export default function FormPropsTextFields() {
       </FormControl>
 
       <br />
+
 
       <h2>Vehicle Relations</h2>
       <div>
